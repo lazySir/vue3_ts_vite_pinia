@@ -4,7 +4,7 @@ export const useAsideStore = defineStore('Aside', {
   state: () => {
     return {
       //侧边栏是否折叠
-      isCollapse: true,
+      isCollapse: false,
       routes,
     }
   },
