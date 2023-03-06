@@ -1,10 +1,10 @@
 import router from './router'
-import { useUserStore } from './store/user'
+
 
 //全局前置导航守卫
 router.beforeEach((to, from, next) => {
-  const userStore = useUserStore()
-  const hasToken = userStore.token
+
+  const hasToken = sessionStorage.getItem('user')
   // token不存在
   if (!hasToken && to.name != 'Login') {
     //说明当前用户未登录应该跳转到登录页面

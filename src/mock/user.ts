@@ -5,8 +5,17 @@ let userInfo = reactive([
     username: 'admin',
     password: 'admin',
     role: 'admin',
-    avatar: '@/assets/img/logo.png',
+    //mock模拟头像
+    avatar: Mock.mock('@image(200x200,@color)'),
     email: '969060742@qq.com',
+  },
+  {
+    username: 'user',
+    password: '12345',
+    role: 'user',
+    //mock模拟头像
+    avatar: Mock.mock('@image(200x200,@color)'),
+    email: 'xxxxx@qq.com',
   },
 ])
 export default {
@@ -23,6 +32,7 @@ export default {
         token: Mock.mock('@guid'),
         avatar: user[0].avatar,
         username: user[0].username,
+        email: user[0].email,
         role: user[0].role,
       }
     } else {

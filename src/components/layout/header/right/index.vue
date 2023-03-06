@@ -1,12 +1,10 @@
 <template>
   <el-dropdown>
     <div @mouseenter="changeActive" @mouseleave="changeActive">
-      <img class="user" src="@/assets/author.jpg" alt="" />
-
-      <el-icon v-if="true">
+      <img class="user" :src="userStore.avatar" alt="" />
+      <el-icon v-if="isActive">
         <arrow-down />
       </el-icon>
-
       <el-icon v-else>
         <arrow-up />
       </el-icon>
@@ -14,16 +12,17 @@
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item>个人中心</el-dropdown-item>
-        <el-dropdown-item>退出</el-dropdown-item>
+        <el-dropdown-item @click='userStore.logout'>退出</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
+import {useUserStore} from '@/store/user/index.ts'
+const userStore = useUserStore()
 let isActive = ref(true)
-
-const changeActive = () => {
+const changeActive = ():void => {
   isActive.value = !isActive.value
 }
 </script>

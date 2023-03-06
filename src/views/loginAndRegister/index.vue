@@ -22,7 +22,7 @@
       <div class="panel right-panel">
         <div class="content">
           <h3>以人为镜，可明得失，以代码为镜，可通逻辑</h3>
-          <p>何以解忧，唯有杜康</p>
+          <p>会当临绝顶，一览众山小</p>
           <button @click="controlPage.change" class="btn transparent">登录</button>
         </div>
         <img src="@/assets/loginAndRegister/register.svg" class="image" alt="" />
@@ -42,9 +42,6 @@ const controlPage = reactive<object>({
   change: function (): void {
     controlPage.signUpMode = !controlPage.signUpMode
   },
-  test:function(){
-    console.log(123)
-  }
 })
 
 </script>

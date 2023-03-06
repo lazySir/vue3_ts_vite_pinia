@@ -1,20 +1,23 @@
 import { defineStore } from 'pinia'
-import { reqLogin,reqRegister} from '@/api/user'
+import { reqLogin, reqRegister, reqLogout } from '@/api/user'
 import { ElMessage } from 'element-plus'
 
 //1.定义容器
 //参数1：容器的ID，必须唯一（可以自己取名），将来Pinia会把所有的容器挂在到跟容器
 export const useUserStore = defineStore('user', {
   // 开启数据持久化
-  persist: true,
+  persist: {
+    // enabled:true,
+    storage: window.sessionStorage,
+  },
 
-  state: () => {
+  state: ()=>{
     return {
       token: '',
       avatar: '',
       username: '',
       role: '',
-      email:''
+      email: '',
     }
   },
   //相当于computed
@@ -26,15 +29,16 @@ export const useUserStore = defineStore('user', {
   actions: {
     //登录
     async login(username: string, password: string) {
-      //请求登录接口  
+      //请求登录接口
       const results: any = await reqLogin(username, password)
       if (results.code == 200) {
         //存储信息
+        console.log(results)
         this.token = results.token
         this.avatar = results.avatar
         this.username = results.username
         this.role = results.role
-        this.email=results.email
+        this.email = results.email
         ElMessage.success(results.message)
         //跳转到首页
         this.router.push('/')
@@ -54,7 +58,18 @@ export const useUserStore = defineStore('user', {
         ElMessage.error(results.message)
         return false
       }
-    }
+    },
+    //退出登录
+    async logout() {
+      let results: any = await reqLogout()
+      if (results.code == 200) {
+        ElMessage.success(results.message)
+        //清空数据绘画存储空间 key为user
+        sessionStorage.removeItem('user')
+        //重置state
+        //跳转到登录页面
+        this.router.push('/login')
+      }
+    },
   },
 })
-
