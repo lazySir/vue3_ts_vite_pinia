@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 import { reqLogin, reqRegister, reqLogout } from '@/api/user'
 import { ElMessage } from 'element-plus'
-
 //1.定义容器
 //参数1：容器的ID，必须唯一（可以自己取名），将来Pinia会把所有的容器挂在到跟容器
 export const useUserStore = defineStore('user', {
@@ -11,7 +10,7 @@ export const useUserStore = defineStore('user', {
     storage: window.sessionStorage,
   },
 
-  state: ()=>{
+  state: () => {
     return {
       token: '',
       avatar: '',
@@ -33,7 +32,6 @@ export const useUserStore = defineStore('user', {
       const results: any = await reqLogin(username, password)
       if (results.code == 200) {
         //存储信息
-        console.log(results)
         this.token = results.token
         this.avatar = results.avatar
         this.username = results.username
@@ -64,9 +62,10 @@ export const useUserStore = defineStore('user', {
       let results: any = await reqLogout()
       if (results.code == 200) {
         ElMessage.success(results.message)
+        //重置state  //需要放在前面 不然会重新加载到本地存储
+        this.$reset()
         //清空数据绘画存储空间 key为user
         sessionStorage.removeItem('user')
-        //重置state
         //跳转到登录页面
         this.router.push('/login')
       }
