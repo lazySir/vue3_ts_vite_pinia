@@ -3,7 +3,6 @@
     <el-breadcrumb-item v-for="(item, index) in tabList" >
         <component style="width: 15px" :is="item.icon"> </component>
         <span :class="{ active: index === tabList.length - 1 }">{{ item.title }} </span>
-
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
@@ -21,7 +20,7 @@ watch(
   () => router.currentRoute.value,
   (newValue: any) => {
     // console.log(newValue)
-    breadCrumbStore.test(newValue)
+    breadCrumbStore.addBreadCrumb(newValue.name)
   },
   // { immediate: true }
 )

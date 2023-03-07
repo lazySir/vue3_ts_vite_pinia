@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia'
 import { routes } from '@/router'
-import { useBreadCrumbStore } from '@/store/breadCrumb'
-const breadCrumbStore = useBreadCrumbStore()
 export const useAsideStore = defineStore('Aside', {
   state: () => {
     return {
@@ -27,7 +25,6 @@ export const useAsideStore = defineStore('Aside', {
     },
     //跳转路由
     pushPath(item: any, index: number) {
-      breadCrumbStore.addTab(item,index)
       this.router.push({
         name: index !== undefined ? item.children[index].name : item.name,
       })
