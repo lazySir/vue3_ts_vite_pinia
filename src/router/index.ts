@@ -13,7 +13,7 @@ export const routes: any = [
     title:'首页',
     component: Layout,
     redirect: '/dashboard', //重定向
-    children: [{ path: 'dashboard', name: 'Dashboard', component: Home, meta: { title: '首页', icon: 'el-icon-s-home' } }],
+    children: [{ path: 'dashboard', name: 'Dashboard', component: Home,  }],
   },
   {
     path:'/about',
