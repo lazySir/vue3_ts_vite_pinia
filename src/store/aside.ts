@@ -24,9 +24,9 @@ export const useAsideStore = defineStore('Aside', {
       this.isCollapse = !this.isCollapse
     },
     //跳转路由
-    pushPath(item: any, index: number) {
+    pushPath(item: any) {
       this.router.push({
-        name: index !== undefined ? item.children[index].name : item.name,
+        name:item.name
       })
     },
   },

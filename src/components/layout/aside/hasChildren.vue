@@ -6,8 +6,8 @@
       </el-icon>
       <span>{{ item.title }}</span>
     </template>
-    <el-menu-item-group v-for="(itemChildrens, index) in item.children" :key="itemChildrens.path">
-      <el-menu-item @click="asideStore.pushPath(item, index)" :index="itemChildrens.path">{{ itemChildrens.title }}</el-menu-item>
+    <el-menu-item-group v-for="itemChildrens in item.children" :key="itemChildrens.path">
+      <el-menu-item @click="asideStore.pushPath(itemChildrens)" :index="itemChildrens.path">{{ itemChildrens.title }}</el-menu-item>
     </el-menu-item-group>
   </el-sub-menu>
 </template>
