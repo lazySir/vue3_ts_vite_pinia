@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useBreadCrumbStore = defineStore('breadCrumb', {
   state: () => {
     return {
-      tabList: [
+      breadCrumbList: [
         {
           path: '/',
           name: 'Home',
@@ -17,23 +17,6 @@ export const useBreadCrumbStore = defineStore('breadCrumb', {
   },
   getters: {},
   actions: {
-    //添加tab
-    // addTab(route: any, index: number) {
-    //   //重置tabList
-    //   this.$reset()
-    //   if (route.name !== 'Home') {
-    //     //判断route.name是否存在于tabList中
-    //     const isExit = this.tabList.some((item: any) => {
-    //       return item.name === route.name
-    //     })
-    //     if (!isExit) {
-    //       this.tabList.push(route)
-    //       if (index !== undefined) {
-    //         this.tabList.push(route.children[index])
-    //       }
-    //     }
-    //   }
-    // },
     addBreadCrumb(routeName: any) {
       this.$reset()
       if (routeName != 'Dashboard') {
@@ -44,12 +27,12 @@ export const useBreadCrumbStore = defineStore('breadCrumb', {
         })
         newRoutes.forEach((item: any) => {
           if (item.name === routeName) {
-            this.tabList.push(item)
+            this.breadCrumbList.push(item)
           } else {
             item.children.forEach((item2: any) => {
               if (item2.name === routeName) {
-                this.tabList.push(item)
-                this.tabList.push(item2)
+                this.breadCrumbList.push(item)
+                this.breadCrumbList.push(item2)
               }
             })
           }

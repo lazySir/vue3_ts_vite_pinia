@@ -1,10 +1,9 @@
 <template>
-<div class="tagBox-container">
-  123
-</div>
+  <div class="tagBox-container">
+    <el-tag>Tag 1</el-tag>
+  </div>
 </template>
-<script lang='ts' setup>
-</script>
+<script lang="ts" setup></script>
 <style scoped>
 .tagBox-container {
   height: 30px;
