@@ -1,4 +1,4 @@
-import router from './router'
+import router from '@/router'
 
 
 //全局前置导航守卫
