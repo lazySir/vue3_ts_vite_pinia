@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 import { routes } from '@/router'
+import {useTagBoxStore} from '@/store/tagBox'
+const tagBoxStore = useTagBoxStore()
 export const useAsideStore = defineStore('Aside', {
   state: () => {
     return {
@@ -25,6 +27,8 @@ export const useAsideStore = defineStore('Aside', {
     },
     //跳转路由
     pushPath(item: any) {
+      //放入tagBox
+      tagBoxStore.pushTag(item)
       this.router.push({
         name:item.name
       })
