@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 import { reactive } from 'vue'
 let userInfo = reactive([
   {
-    username: 'admin',
+    username: 'Admin',
     password: 'admin',
     role: 'admin',
     //mock模拟头像
@@ -10,7 +10,7 @@ let userInfo = reactive([
     email: '969060742@qq.com',
   },
   {
-    username: 'user',
+    username: 'User',
     password: '12345',
     role: 'user',
     //mock模拟头像

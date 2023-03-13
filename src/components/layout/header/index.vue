@@ -1,9 +1,9 @@
 <template>
   <div class="header-container">
-    <div class="l-content">
+    <div class="l-container">
       <leftContent />
     </div>
-    <div class="r-content">
+    <div class="r-container">
       <rightContent />
     </div>
   </div>
