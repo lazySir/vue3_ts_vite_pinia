@@ -1,13 +1,12 @@
 <template>
-<img src="@/assets/header/clothes.svg" alt="">
+  <el-icon size="20px">
+    <i-mingcute-t-shirt-line></i-mingcute-t-shirt-line>
+  </el-icon>
 </template>
-<script lang='ts' setup>
-</script>
+<script lang="ts" setup></script>
 <style scoped>
-img {
-  width: 20px;
-  height: 20px;
+.el-icon {
+  margin-left: 15px;
   cursor: pointer;
-  margin-left:15px;
 }
 </style>

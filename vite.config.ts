@@ -6,6 +6,11 @@ import WindiCSS from 'vite-plugin-windicss'
 import path from 'path'
 //引入vie-plugin-mock
 import { viteMockServe } from 'vite-plugin-mock'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Components from 'unplugin-vue-components/vite'
+// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -18,6 +23,18 @@ export default defineConfig({
       supportTs: true,
       logger: false,
       mockPath: './mock/',
+    }),
+    Components({
+      resolvers: [
+        IconsResolver(),
+        // ElementPlusResolver()
+      ],
+    }),
+    Icons({
+      scale: 1.2,
+      //将默认icon的长和高设置为20px
+      defaultStyle: 'height:20px;width:20px;',
+
     }),
   ],
   server: {
@@ -34,5 +51,12 @@ export default defineConfig({
     },
     //配置文件扩展名
     // extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/styles/theme/element-dark.scss" as *;`,
+      },
+    },
   },
 })

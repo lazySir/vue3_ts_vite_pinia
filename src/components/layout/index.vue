@@ -1,5 +1,5 @@
 <template>
-  <div class="common-layout">
+  <div class="el-container">
     <!-- Layout布局  -->
     <el-container>
       <!-- 左边 -->
@@ -26,6 +26,7 @@ import Footer from '@/components/layout/footer/index.vue'
 <style scoped>
 .el-header {
   --el-header-padding: 0 0px;
+  --el-header-height: 55px;
 }
 .el-main {
   box-sizing: border-box;
@@ -37,7 +38,7 @@ import Footer from '@/components/layout/footer/index.vue'
 .el-footer {
   height: 30px;
   background: #ffffff;
-  border-top: 1px solid #e4e7ed;
+    border-top: 1px solid #e4e7ed;
   display: flex;
   align-items: center;
   justify-content: center;

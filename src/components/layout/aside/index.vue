@@ -1,7 +1,8 @@
 <template>
-  <div class="container">
+  <div class="aside-container">
     <!-- @open="handleOpen" @close="handleClose" -->
     <el-menu :collapse="asideStore.isCollapse" active-text-color="#ffd04b" background-color="#191A20" class="el-menu-vertical-demo" default-active="2" text-color="#fff">
+      <!-- 头部 -->
       <logoForm  />
       <!-- 无子项 -->
       <noChildren />
@@ -24,16 +25,17 @@ const asideStore = useAsideStore()
   width: 200px;
   min-height: 400px;
 }
-.container {
+.aside-container {
   height: 100%;
 }
 
 //让el-menu铺满整个容器
-.container {
+.aside-container {
   height: 100vh;
 }
 
 .el-menu {
   height: 100%;
+  border: 0;
 }
 </style>

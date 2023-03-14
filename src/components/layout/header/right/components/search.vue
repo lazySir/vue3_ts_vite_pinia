@@ -1,5 +1,7 @@
 <template>
-  <el-icon size="20px" color="#303113"><Search /></el-icon>
+  <el-icon size="20px">
+    <i-material-symbols-search-sharp></i-material-symbols-search-sharp>
+  </el-icon>
 </template>
 <script lang="ts" setup></script>
 <style scoped>

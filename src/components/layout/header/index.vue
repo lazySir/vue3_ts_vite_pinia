@@ -17,6 +17,7 @@ import rightContent from '@/components/layout/header/right/index.vue'
 <style scoped>
 .header-container {
   height: 55px;
+  /* --el-header-height: 55px; */
   padding: 0 15px;
   display: flex;
   align-items: center;

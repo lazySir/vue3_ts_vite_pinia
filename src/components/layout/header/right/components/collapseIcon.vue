@@ -1,13 +1,14 @@
 <template>
-  <span @click="changeToggle" class="collapse-icon">
-    <img v-if="isToggle" src="@/assets/header/shrink.svg" alt="" />
-    <img v-else src="@/assets/header/expand.svg" alt="" />
-  </span>
+  <el-icon size="20px" @click="changeToggle">
+    <i-ic-baseline-zoom-out-map v-if="isToggle" />
+    <i-ic-baseline-zoom-in-map v-else />
+  </el-icon>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useFullscreen } from '@vueuse/core'
+
 const { toggle } = useFullscreen()
 const isToggle = ref(false)
 const changeToggle = (): void => {
@@ -17,13 +18,8 @@ const changeToggle = (): void => {
 </script>
 
 <style scoped lang="scss">
-span,
-img {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-span {
+.el-icon {
   margin-left: 15px;
+  cursor: pointer;
 }
 </style>

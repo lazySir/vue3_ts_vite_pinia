@@ -9,7 +9,7 @@ export const routes: any = [
   {
     path: '/',
     name: 'Home',
-    icon: 'House',
+    icon: 'HomeFilled',
     title:'首页',
     component: Layout,
     redirect: '/dashboard', //重定向
@@ -18,7 +18,7 @@ export const routes: any = [
   {
     path:'/about',
     name:'About',
-    icon:'User',
+    icon:'UserFilled',
     title:'关于',
     redirect: '/about/about', //重定向
     component:Layout,

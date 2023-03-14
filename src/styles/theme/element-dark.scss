@@ -1,0 +1,97 @@
+html.dark {
+  /* 自定义深色背景颜色 */
+  --lazySir-bg-color: #141414;
+  --lazySir-main-bg-color: #0d0d0d;
+  --lazySir-border-light: 1px solid #4c4c4d;
+  --lazySir-text-color: #cfd3dc;
+  --lazySir-border-color: #414242;
+	// * wangEditor
+	--w-e-toolbar-color: #595959;
+	--w-e-toolbar-bg-color: #eeeeee;
+	--w-e-textarea-bg-color: #141414;
+	--w-e-textarea-color: #eeeeee;
+
+  .el-container {
+    .el-header {
+      .header-container {
+        /* 自定义深色背景颜色 */
+        background-color: var(--lazySir-bg-color) !important;
+        border-bottom: 1px solid var(--lazySir-border-color) !important;
+        .l-container {
+          .wrapper {
+            .el-breadcrumb {
+              span {
+                color: #e5eaf3;
+              }
+              .active {
+                color: #cfd3dc;
+              }
+            }
+          }
+        }
+        .r-container{
+          .el-icon{
+            &:not(.is-active) {
+              color: #bdbdc0 !important;
+            }
+            &.is-active {
+              color: #ffffff !important;
+              background-color: #000000 !important;
+            }
+          }
+          .username{
+           color:var(--lazySir-text-color) !important
+          }
+        }
+      }
+    }
+    .el-aside {
+      // menu
+      .el-menu,
+      .el-sub-menu,
+      .el-menu-item,
+      .el-sub-menu__title {
+        background-color: var(--lazySir-bg-color) !important;
+        &:not(.is-active) {
+          color: #bdbdc0 !important;
+        }
+        &.is-active {
+          color: #ffffff !important;
+          background-color: #000000 !important;
+        }
+      }
+      .el-menu-item:not(.is-active):hover {
+        background-color: var(--lazySir-main-bg-color) !important;
+      }
+      //logo
+      .logo {
+        border-bottom-color: var(--lazySir-border-color) !important;
+      }
+      border-right: 1px solid var(--lazySir-border-color) !important;
+    }
+    .el-main {
+      background-color: var(--lazySir-bg-color);
+    }
+    .el-footer {
+      border-top: 1px solid var(--lazySir-border-color) !important;
+      background-color: var(--lazySir-bg-color) !important;
+      .footer-container .text {
+        color: var(--lazySir-text-color) !important;
+      }
+    }
+
+    //tagBox
+    .tagBox-container {
+      background-color: var(--lazySir-bg-color);
+      border-bottom: 1px solid var(--lazySir-border-color);
+    }
+  }
+
+  // .el-breadcrumb {
+  //   .el-breadcrumb-item {
+  //     span {
+  //       color: white !important;
+  //     }
+  //   }
+  // }
+}

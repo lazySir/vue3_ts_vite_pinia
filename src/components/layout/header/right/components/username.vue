@@ -1,12 +1,12 @@
 <template>
-  <span> {{userStore.username}} </span>
+  <span class='username'> {{userStore.username}} </span>
 </template>
 <script lang="ts" setup>
 import { useUserStore } from '@/store/user/index.ts'
 const userStore = useUserStore()
 </script>
 <style scoped>
-span {
+.username {
   margin: 0 20px;
   font-size: 15px;
   color:#303113;
