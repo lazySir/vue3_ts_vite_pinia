@@ -13,7 +13,8 @@ setupPinia(app)
 
 //引入element-plus
 setupElementPlus(app)
-
+// element dark(内置暗黑模式)
+import 'element-plus/theme-chalk/dark/css-vars.css'
 //引入路由守卫
 import './permission'
 //引入windicss
