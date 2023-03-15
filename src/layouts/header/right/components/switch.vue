@@ -7,7 +7,6 @@ import {useHeaderStore} from '@/store/header'
 import {storeToRefs} from 'pinia'
 const headerStore = useHeaderStore()
 const {night} = storeToRefs(headerStore)
-console.log(night)
 </script>
 <style scoped>
 .el-switch {

@@ -10,8 +10,10 @@
         <el-header><Header /> </el-header>
         <tagBox></tagBox>
         <!-- 主体展示 -->
-        <el-main><Main /></el-main>
-         <el-footer><Footer /></el-footer>
+        <el-main>
+          <Main />
+        </el-main>
+        <el-footer><Footer /></el-footer>
       </el-container>
     </el-container>
   </div>
@@ -24,5 +26,5 @@ import tagBox from '@/layouts/tagBox/index.vue'
 import Footer from '@/layouts/footer/index.vue'
 </script>
 <style scoped>
-@import './index.scss'
+@import './index.scss';
 </style>

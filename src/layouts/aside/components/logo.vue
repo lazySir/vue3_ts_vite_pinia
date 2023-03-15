@@ -1,7 +1,7 @@
 <template>
   <div class="logo">
     <img src="@/assets/vue.svg" alt="" />
-    <h1 v-if="!asideStore.isCollapse" class="title">后台系统</h1>
+    <h1 v-if="!asideStore.isCollapse" class="title">Lazy-Admin</h1>
   </div>
 </template>
 <script lang="ts" setup>

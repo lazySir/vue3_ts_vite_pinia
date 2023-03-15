@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const Layout = () => import('@/layouts/index.vue')
-const Home = () => import('@/views/Home.vue')
+const Home = () => import('@/views/home/index.vue')
 const NotFound = () => import('@/views/404.vue')
 const Other1 = () => import('@/views/other1.vue')
 const Other2 = () => import('@/views/other2.vue')
