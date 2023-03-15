@@ -17,6 +17,8 @@ setupElementPlus(app)
 import 'element-plus/theme-chalk/dark/css-vars.css'
 //引入路由守卫
 import './permission'
+
+
 //引入windicss
 // import 'virtual:windi.css'
 
@@ -25,7 +27,5 @@ import './permission'
 // app.provide('requests',app.config.globalProperties.$requests=requests)
 //引入mock
 import '@/mock'
-// iconfont css
-// import '@/assets/iconfont/iconfont.scss'
 
 app.mount('#app')
