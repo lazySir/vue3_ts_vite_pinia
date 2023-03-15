@@ -1,0 +1,11 @@
+.header-container {
+  height: 55px;
+  /* --el-header-height: 55px; */
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-bottom: 1px solid #f1f1f1;
+}

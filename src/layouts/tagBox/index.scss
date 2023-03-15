@@ -1,0 +1,13 @@
+.tagBox-container {
+  height: 30px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-bottom: 1px solid #f1f1f1;
+}
+.el-tag {
+  margin-left: 5px;
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 <template>
   <div class="tagBox-container">
-    <el-tag v-for="(item, index) in tagList" :key="item.title" @click="tagBoxStore.pushRoute(item.name)" @close="tagBoxStore.deleteTag(index)" :closable="index !== 0">
+    <el-tag v-for="(item, index) in tagList" :effect="headerStore.nightTheme" :type='headerStore.nightClass' :key="item.title" @click="tagBoxStore.pushRoute(item.name)" @close="tagBoxStore.deleteTag(index)" :closable="index !== 0">
       <span v-if="item.icon != ''">
         <component style="width: 12px" :is="item.icon"></component>
       </span>
@@ -11,22 +11,13 @@
 </template>
 <script lang="ts" setup>
 import { useTagBoxStore } from '@/store/tagBox'
+import { useHeaderStore } from '@/store/header'
 import { storeToRefs } from 'pinia'
 const tagBoxStore = useTagBoxStore()
 const { tagList } = storeToRefs(tagBoxStore)
+const headerStore = useHeaderStore()
+const { night } = storeToRefs(headerStore)
 </script>
 <style scoped>
-.tagBox-container {
-  height: 30px;
-  padding: 0 15px;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  background-color: #fff;
-  border-bottom: 1px solid #f1f1f1;
-}
-.el-tag {
-  margin-left: 5px;
-  cursor: pointer;
-}
+@import './index.scss'
 </style>

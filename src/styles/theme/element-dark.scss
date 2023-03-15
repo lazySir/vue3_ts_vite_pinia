@@ -5,11 +5,11 @@ html.dark {
   --lazySir-border-light: 1px solid #4c4c4d;
   --lazySir-text-color: #cfd3dc;
   --lazySir-border-color: #414242;
-	// * wangEditor
-	--w-e-toolbar-color: #595959;
-	--w-e-toolbar-bg-color: #eeeeee;
-	--w-e-textarea-bg-color: #141414;
-	--w-e-textarea-color: #eeeeee;
+  // * wangEditor
+  --w-e-toolbar-color: #595959;
+  --w-e-toolbar-bg-color: #eeeeee;
+  --w-e-textarea-bg-color: #141414;
+  --w-e-textarea-color: #eeeeee;
 
   .el-container {
     .el-header {
@@ -28,9 +28,7 @@ html.dark {
               }
             }
           }
-        }
-        .r-container{
-          .el-icon{
+          .el-icon {
             &:not(.is-active) {
               color: #bdbdc0 !important;
             }
@@ -39,8 +37,19 @@ html.dark {
               background-color: #000000 !important;
             }
           }
-          .username{
-           color:var(--lazySir-text-color) !important
+        }
+        .r-container {
+          .el-icon {
+            &:not(.is-active) {
+              color: #bdbdc0 !important;
+            }
+            &.is-active {
+              color: #ffffff !important;
+              background-color: #000000 !important;
+            }
+          }
+          .username {
+            color: var(--lazySir-text-color) !important;
           }
         }
       }
@@ -75,7 +84,7 @@ html.dark {
     .el-footer {
       border-top: 1px solid var(--lazySir-border-color) !important;
       background-color: var(--lazySir-bg-color) !important;
-      .footer-container .text {
+      .footer-container a {
         color: var(--lazySir-text-color) !important;
       }
     }
@@ -86,12 +95,4 @@ html.dark {
       border-bottom: 1px solid var(--lazySir-border-color);
     }
   }
-
-  // .el-breadcrumb {
-  //   .el-breadcrumb-item {
-  //     span {
-  //       color: white !important;
-  //     }
-  //   }
-  // }
 }

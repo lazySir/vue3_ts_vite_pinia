@@ -8,16 +8,12 @@
 </template>
 
 <script setup lang='ts'>
-import BreadCrumb from './breadCrumb/index.vue'
-import Hamburger from './hamburger/index.vue'
+import BreadCrumb from '@/layouts/header/left/components/breadCrumb.vue'
+import Hamburger from '@/layouts/header/left/components/hamburger.vue'
 
 </script>
 
 <style  scoped>
-.wrapper{
-  display: flex;
-  align-items: center;
-   justify-content: space-between;
-}
 
+@import './index.scss'
 </style>

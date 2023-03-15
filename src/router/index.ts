@@ -1,32 +1,35 @@
 import { createRouter, createWebHistory } from 'vue-router'
-const Layout = () => import('@/components/layout/index.vue')
+const Layout = () => import('@/layouts/index.vue')
 const Home = () => import('@/views/Home.vue')
 const NotFound = () => import('@/views/404.vue')
-const Other1 = ()=>import('@/views/other1.vue')
-const Other2  =()=>import('@/views/other2.vue')
-const about = ()=>import('@/views/about.vue')
+const Other1 = () => import('@/views/other1.vue')
+const Other2 = () => import('@/views/other2.vue')
+const about = () => import('@/views/about.vue')
+
 export const routes: any = [
   {
     path: '/',
     name: 'Home',
     icon: 'HomeFilled',
-    title:'首页',
+    title: '首页',
     component: Layout,
     redirect: '/dashboard', //重定向
-    children: [{ path: 'dashboard', name: 'Dashboard', component: Home,  }],
+    children: [{ path: 'dashboard', name: 'Dashboard', component: Home }],
   },
   {
-    path:'/about',
-    name:'About',
-    icon:'UserFilled',
-    title:'关于',
+    path: '/about',
+    name: 'About',
+    icon: 'UserFilled',
+    title: '关于',
     redirect: '/about/about', //重定向
-    component:Layout,
-    children:[{
-      path:'about',
-      name:'About',
-      component:about
-    }]
+    component: Layout,
+    children: [
+      {
+        path: 'about',
+        name: 'About',
+        component: about,
+      },
+    ],
   },
   {
     path: '/login',
@@ -36,25 +39,28 @@ export const routes: any = [
   // 将匹配所有内容并将其放在 `$route.params.pathMatch` 下
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
   {
-    path:'/other',
-    name:'Other',
-    title:'其他',
-    component:Layout,
-    icon:'Location',
-    children:[{
-      path:'other1',
-      name:'Other1',
-      title:'页面1',
-      component:Other1
-    },
-    {
-      path:'other2',
-      name:'Other2',
-      title:'页面2',
-      component:Other2
-    }
-  ]
-  }
+    path: '/other',
+    name: 'Other',
+    title: '其他',
+    component: Layout,
+    icon: 'Location',
+    children: [
+      {
+        path: 'other1',
+        name: 'Other1',
+        title: '页面1',
+        icon:'Menu',
+        component: Other1,
+      },
+      {
+        path: 'other2',
+        name: 'Other2',
+        title: '页面2',
+        icon:'Menu',
+        component: Other2,
+      },
+    ],
+  },
 ]
 
 const router = createRouter({

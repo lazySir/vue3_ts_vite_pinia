@@ -1,0 +1,19 @@
+.el-header {
+  --el-header-padding: 0 0px;
+  --el-header-height: 55px;
+}
+.el-main {
+  box-sizing: border-box;
+  padding: 10px 12px;
+  overflow-x: hidden;
+  background-color: #f0f2f5;
+  height: calc(100vh - 55px - 30px - 30px - 10px);
+}
+.el-footer {
+  height: 30px;
+  background: #ffffff;
+    border-top: 1px solid #e4e7ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
