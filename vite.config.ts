@@ -9,7 +9,10 @@ import { viteMockServe } from 'vite-plugin-mock'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
-// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+//自动引入elemnet-plus
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,10 +27,13 @@ export default defineConfig({
       logger: false,
       mockPath: './mock/',
     }),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
     Components({
       resolvers: [
         IconsResolver(),
-        // ElementPlusResolver()
+        ElementPlusResolver()
       ],
     }),
     Icons({

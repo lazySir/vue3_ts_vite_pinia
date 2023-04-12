@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 let userInfo = reactive([
   {
     username: 'Admin',
-    password: 'admin',
+    password: '12345',
     role: 'admin',
     //mock模拟头像
     avatar: Mock.mock('@image(200x200,@color)'),
