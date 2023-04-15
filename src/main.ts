@@ -10,8 +10,8 @@ const app = createApp(App)
 app.use(router)
 //引入pinia
 setupPinia(app)
-//手动引入element-ui 也可以使用unplugin-vue-components/vite自动引入
-// setupElementPlus(app) //项目使用了自动引入故不需要全局引入
+//全局引入element-ui图标组件库
+setupElementPlus(app) 
 
 
 // element dark(内置暗黑模式)
