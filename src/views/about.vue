@@ -1,5 +1,5 @@
 <template>
-  <div class='flex bg-red-500 h-100 w-100'></div>
+123
 </template>
 
 <script lang="ts" setup>

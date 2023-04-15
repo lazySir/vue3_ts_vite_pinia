@@ -4,7 +4,6 @@ const Home = () => import('@/views/home/index.vue')
 const NotFound = () => import('@/views/404.vue')
 const Other1 = () => import('@/views/other1.vue')
 const Other2 = () => import('@/views/other2.vue')
-const about = () => import('@/views/about.vue')
 
 export const routes: any = [
   {
@@ -21,13 +20,13 @@ export const routes: any = [
     name: 'About',
     icon: 'UserFilled',
     title: '关于',
-    redirect: '/about/about', //重定向
+    redirect: '/about/case', //重定向
     component: Layout,
     children: [
       {
-        path: 'about',
+        path: 'case',
         name: 'About',
-        component: about,
+        component: () => import('@/views/about.vue'),
       },
     ],
   },
@@ -39,6 +38,24 @@ export const routes: any = [
   // 将匹配所有内容并将其放在 `$route.params.pathMatch` 下
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
   {
+    path: '/superTable',
+    name: 'SuperTable',
+    title: '超级表格',
+    component: Layout,
+    icon: 'MessageBox',
+    redirect: '/superTable/proTable', //重定向
+    children: [
+      {
+        path: 'proTable',
+        name: 'ProTable',
+        title: '使用ProTable',
+        icon: 'Menu',
+        component: () => import('@/views/superTable/proTable/index.vue'),
+      },
+      
+    ],
+  },
+  {
     path: '/other',
     name: 'Other',
     title: '其他',
@@ -49,14 +66,14 @@ export const routes: any = [
         path: 'other1',
         name: 'Other1',
         title: '页面1',
-        icon:'Menu',
+        icon: 'Menu',
         component: Other1,
       },
       {
         path: 'other2',
         name: 'Other2',
         title: '页面2',
-        icon:'Menu',
+        icon: 'Menu',
         component: Other2,
       },
     ],
