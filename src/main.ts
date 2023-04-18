@@ -12,7 +12,8 @@ app.use(router)
 setupPinia(app)
 //全局引入element-ui图标组件库
 setupElementPlus(app) 
-
+// 引入进度条样式
+import 'nprogress/nprogress.css'
 // element dark(内置暗黑模式)
 import 'element-plus/theme-chalk/dark/css-vars.css'
 //引入路由守卫
