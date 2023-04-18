@@ -17,7 +17,7 @@
   </el-form>
   <div class="login-btn">
     <el-button :icon="Plus" round @click="register()" size="large">注册</el-button>
-    <el-button :icon="UserFilled" round @click="handlerLogin()" size="large" type="success" > 登录 </el-button>
+    <el-button :icon="UserFilled" round @click="handlerLogin()" size="large" type="success" :loading="loading"> 登录 </el-button>
   </div>
 </template>
 <script lang="ts" setup>
@@ -35,9 +35,11 @@ const loginForm = ref<any>(null)
 function handlerLogin() {
   loginForm.value.validate(async (valid: boolean): boolean => {
     if (valid) {
+      loading.value = true
       let result = await userStore.login(loginUser.username, loginUser.password)
       if (result) {
         resetForm()
+        loading.value = false
       }
       return true
     } else {
@@ -51,10 +53,12 @@ function resetForm() {
   loginUser.password = ''
 }
 //切换到注册
-function register(){
+function register() {
   emit('changeLogin')
 }
-
+//loading
+const loading = ref(false)
+//监听enter键
 onMounted(() => {
   // 监听 enter 事件（调用登录）
   document.onkeydown = (e: KeyboardEvent) => {
