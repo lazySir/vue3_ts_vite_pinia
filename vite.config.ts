@@ -44,9 +44,10 @@ export default defineConfig({
     }),
   ],
   server: {
+    //是否开启https
     hmr: true,
-
     host:"0.0.0.0",
+    open:true
   },
 
   resolve: {
