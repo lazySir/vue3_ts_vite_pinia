@@ -11,18 +11,26 @@
     </div>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item>个人中心</el-dropdown-item>
-        <el-dropdown-item @click='userStore.logout'>退出</el-dropdown-item>
+        <el-dropdown-item>
+          <el-icon><User /></el-icon>个人中心</el-dropdown-item
+        >
+        <el-dropdown-item>
+          <el-icon><Edit /></el-icon>修改密码</el-dropdown-item
+        >
+        <el-dropdown-item divided @click="userStore.logout">
+          <el-icon><SwitchButton /></el-icon>
+          退出
+        </el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import {useUserStore} from '@/store/user.ts'
+import { useUserStore } from '@/store/user.ts'
 const userStore = useUserStore()
 let isActive = ref(true)
-const changeActive = ():void => {
+const changeActive = (): void => {
   isActive.value = !isActive.value
 }
 </script>
