@@ -2,7 +2,7 @@
   <span class='username'> {{userStore.username}} </span>
 </template>
 <script lang="ts" setup>
-import { useUserStore } from '@/store/user/index.ts'
+import { useUserStore } from '@/store/user.ts'
 const userStore = useUserStore()
 </script>
 <style scoped>

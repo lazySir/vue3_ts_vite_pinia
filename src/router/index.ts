@@ -33,7 +33,7 @@ export const routes: any = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/views/loginAndRegister/index.vue'),
+    component: () => import('@/views/login/index.vue'),
   },
   // 将匹配所有内容并将其放在 `$route.params.pathMatch` 下
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
@@ -52,7 +52,6 @@ export const routes: any = [
         icon: 'Menu',
         component: () => import('@/views/superTable/proTable/index.vue'),
       },
-      
     ],
   },
   {

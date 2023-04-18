@@ -40,8 +40,10 @@ export const useUserStore = defineStore('user', {
         ElMessage.success(results.message)
         //跳转到首页
         this.router.push('/')
+        return true
       } else {
         ElMessage.error(results.message)
+        return false
       }
     },
     //注册

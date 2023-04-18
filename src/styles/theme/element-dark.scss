@@ -10,7 +10,14 @@ html.dark {
   --w-e-toolbar-bg-color: #eeeeee;
   --w-e-textarea-bg-color: #141414;
   --w-e-textarea-color: #eeeeee;
-
+  //登录界面
+  .login-container {
+    background-color: #191919!important;
+    .login-box {
+      background-color: #000c!important;
+    }
+  }
+  //管理界面
   .el-container {
     .el-header {
       .header-container {
