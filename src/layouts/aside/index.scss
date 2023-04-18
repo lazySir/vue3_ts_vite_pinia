@@ -2,16 +2,13 @@
   width: 200px;
   min-height: 400px;
 }
-.aside-container {
-  height: 100%;
-}
 //去掉el-menu-item-group__title
 .el-menu-item-group__title {
   display: none;
 }
-/* 激活时的背景颜色为#060708 */
+/* 激活时的背景颜色为#E6F5F3 */
 .el-menu-item.is-active {
-  background-color: #060708;
+  background-color: #E6F5F3;
 }
 .el-menu-item.is-active::before {
   content: '';

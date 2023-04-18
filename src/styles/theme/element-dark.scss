@@ -12,9 +12,9 @@ html.dark {
   --w-e-textarea-color: #eeeeee;
   //登录界面
   .login-container {
-    background-color: #191919!important;
+    background-color: #191919 !important;
     .login-box {
-      background-color: #000c!important;
+      background-color: #000c !important;
     }
   }
   //管理界面
@@ -77,10 +77,15 @@ html.dark {
         }
       }
       .el-menu-item:not(.is-active):hover {
+        color: #ffffff !important;
         background-color: var(--lazySir-main-bg-color) !important;
       }
       //logo
       .logo {
+        .title {
+          color: #dadada !important;
+        }
+
         border-bottom-color: var(--lazySir-border-color) !important;
       }
       border-right: 1px solid var(--lazySir-border-color) !important;

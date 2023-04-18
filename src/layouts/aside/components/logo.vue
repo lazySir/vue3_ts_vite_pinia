@@ -12,7 +12,7 @@ const asideStore = useAsideStore()
 .logo {
   box-sizing: border-box;
   height: 55px;
-  border-bottom: 1px solid #282a35;
+  border-bottom:1px solid #e4e7ed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@ const asideStore = useAsideStore()
 .title {
   font-size: 21.5px;
   font-weight: 700;
-  color: #dadada;
+  color: #303133;
   white-space: nowrap;
 }
 </style>

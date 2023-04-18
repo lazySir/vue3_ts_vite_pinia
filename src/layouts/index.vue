@@ -3,7 +3,7 @@
     <!-- Layout布局  -->
     <el-container>
       <!-- 左边 -->
-      <el-aside width="auto"><Aside /></el-aside>
+      <el-aside  width="auto"><Aside /></el-aside>
       <!-- 右边 -->
       <el-container>
         <!-- 头部 -->

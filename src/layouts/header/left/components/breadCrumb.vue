@@ -29,6 +29,7 @@ div {
   margin-left: 15px;
 }
 span {
+  margin-left: 3px;
   font-size: 14px;
   font-weight: 700;
   color:#303133;
