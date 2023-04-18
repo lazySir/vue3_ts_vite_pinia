@@ -1,5 +1,5 @@
 <template>
-  <el-menu-item v-for="item in asideStore.noChildren" @click="asideStore.pushPath(item)" :key="item.path" :index="item.path">
+  <el-menu-item :index='item.title'  v-for="(item,index1) in asideStore.noChildren" @click="asideStore.pushPath(item)" :key="item.path" >
     <el-icon :size="18" color="#BDBDC0">
       <component :is="item.icon" />
     </el-icon>
