@@ -15,6 +15,34 @@ export const routes: any = [
     redirect: '/dashboard', //重定向
     children: [{ path: 'dashboard', name: 'Dashboard', component: Home }],
   },
+  //权限管理
+  {
+    path: '/permission',
+    name: 'Permission',
+    icon: 'Lock',
+    title: '权限管理',
+    component: Layout,
+    children: [
+      { path: 'user', name: 'User', title: '用户管理', icon: 'User', component: () => import('@/views/permission/user/index.vue') },
+      { path: 'role', name: 'Role', title: '角色管理', icon: 'Avatar', component: () => import('@/views/permission/role/index.vue') },
+      { path: 'menu', name: 'Menu', title: '菜单管理', icon: 'Menu', component: () => import('@/views/permission/menu/index.vue') },
+    ],
+  },
+  {
+    path: '/ecahrts',
+    name: 'Ecahrts',
+    icon: 'Histogram',
+    title: 'Ecahrts',
+    component: Layout,
+    redirect: '/ecahrts/plan1',
+    children: [
+      {
+        path: 'plan1',
+        name: 'Plan1',
+        component: () => import('@/views/echarts/index.vue'),
+      },
+    ],
+  },
   {
     path: '/about',
     name: 'About',
