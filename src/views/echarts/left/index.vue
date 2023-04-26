@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import userInfo from '@/views/home/left/components/userInfo.vue'
+import userInfo from '@/views/echarts/left/components/userInfo.vue'
 
 </script>
 
