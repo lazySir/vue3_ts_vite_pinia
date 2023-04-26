@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const Layout = () => import('@/layouts/index.vue')
-const Home = () => import('@/views/home/index.vue')
-const NotFound = () => import('@/views/404.vue')
 const Other1 = () => import('@/views/other1.vue')
 const Other2 = () => import('@/views/other2.vue')
 
@@ -13,7 +11,7 @@ export const routes: any = [
     title: '首页',
     component: Layout,
     redirect: '/dashboard', //重定向
-    children: [{ path: 'dashboard', name: 'Dashboard', component: Home }],
+    children: [{ path: 'dashboard', name: 'Dashboard', component: () => import('@/views/home/index.vue') }],
   },
   //权限管理
   {
@@ -64,7 +62,7 @@ export const routes: any = [
     component: () => import('@/views/login/index.vue'),
   },
   // 将匹配所有内容并将其放在 `$route.params.pathMatch` 下
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: ()=>import ('@/views/404/index.vue') },
   {
     path: '/superTable',
     name: 'SuperTable',
