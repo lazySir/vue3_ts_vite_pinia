@@ -7,7 +7,7 @@ function getNight() {
   if (window.localStorage.getItem('vueuse-color-scheme') == 'auto') flag = false
   return flag
 }
-export const useHeaderStore = defineStore('header', {
+export const useSwitchStore = defineStore('switch', {
   state: () => {
     return {
       night: getNight(),

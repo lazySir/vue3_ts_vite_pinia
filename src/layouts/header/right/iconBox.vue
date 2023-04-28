@@ -7,7 +7,7 @@
   <collapseIcon></collapseIcon>
 </template>
 <script lang="ts" setup>
-import theme from '@/layouts/header/right/components/switch.vue'
+import theme from '@/components/switch.vue'
 import language from '@/layouts/header/right/components/language.vue'
 import collapseIcon from '@/layouts/header/right/components/collapseIcon.vue'
 import bell from '@/layouts/header/right/components/bell.vue'

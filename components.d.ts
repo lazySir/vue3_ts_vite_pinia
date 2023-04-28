@@ -68,7 +68,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Search: typeof import('./src/components/layout/header/right/components/search.vue')['default']
-    Switch: typeof import('./src/components/layout/header/right/components/switch.vue')['default']
+    Switch: typeof import('./src/components/switch.vue')['default']
     TagBox: typeof import('./src/components/layout/tagBox/index.vue')['default']
     Username: typeof import('./src/components/layout/header/right/components/username.vue')['default']
   }
