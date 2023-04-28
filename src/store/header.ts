@@ -2,11 +2,15 @@ import { defineStore } from 'pinia'
 import { useDark, useToggle } from '@vueuse/core'
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
-
+function getNight() {
+  let flag = true
+  if (window.localStorage.getItem('vueuse-color-scheme') == 'auto') flag = false
+  return flag
+}
 export const useHeaderStore = defineStore('header', {
   state: () => {
     return {
-      night: false,
+      night: getNight(),
     }
   },
   getters: {
@@ -16,7 +20,7 @@ export const useHeaderStore = defineStore('header', {
     nightTheme: (state) => (state.night ? 'dark' : 'light'),
   },
   actions: {
-    changeTime() {
+    changeTheme() {
       toggleDark()
       //这段话不用写 el-switch好像自动写了
       // this.night = !this.night
