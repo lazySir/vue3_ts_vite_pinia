@@ -1,7 +1,7 @@
 const Layout = () => import('@/layouts/index.vue')
 const Other1 = () => import('@/views/other1.vue')
 const Other2 = () => import('@/views/other2.vue')
-export const asyncRoutes: any = [
+export let asyncRoutes: any = [
   //权限管理
   {
     path: '/permission',
@@ -26,6 +26,8 @@ export const asyncRoutes: any = [
       {
         path: 'plan1',
         name: 'Plan1',
+        title:'方案一',
+        icon:'Menu',
         component: () => import('@/views/echarts/index.vue'),
       },
     ],
@@ -41,6 +43,8 @@ export const asyncRoutes: any = [
       {
         path: 'case',
         name: 'About',
+        title: '测试1',
+        icon:'Menu',
         component: () => import('@/views/about.vue'),
       },
     ],
