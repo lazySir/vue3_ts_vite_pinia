@@ -55,7 +55,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
     //配置文件扩展名
-    // extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
   },
   css: {
     preprocessorOptions: {
