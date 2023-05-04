@@ -1,7 +1,5 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-//windcss
-import WindiCSS from 'vite-plugin-windicss'
 //node的path模块
 import path from 'path'
 //引入vie-plugin-mock
@@ -9,7 +7,8 @@ import { viteMockServe } from 'vite-plugin-mock'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
-
+//unocss
+import UnoCSS from 'unocss/vite'
 //自动引入elemnet-plus
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -18,8 +17,6 @@ import AutoImport from 'unplugin-auto-import/vite'
 export default defineConfig({
   plugins: [
     vue(),
-    //windcss
-    WindiCSS(),
     //mock
     viteMockServe({
       // 更多配置见最下方
@@ -27,6 +24,8 @@ export default defineConfig({
       logger: false,
       mockPath: './mock/',
     }),
+    //unocss
+    UnoCSS(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),

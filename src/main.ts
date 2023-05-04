@@ -19,9 +19,8 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 //引入路由守卫
 import './permission'
 
-
-//引入windicss
-// import 'virtual:windi.css'
+// unocss
+import 'virtual:uno.css'
 
 //引入全局axios
 // import requests from './utils/request'
