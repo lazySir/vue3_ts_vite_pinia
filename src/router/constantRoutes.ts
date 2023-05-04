@@ -4,7 +4,7 @@ export const constantRoutes: any = [
   {
     path: '/',
     name: 'Home',
-    icon: 'HomeFilled',
+    icon: 'i-material-symbols:home',
     title: '首页',
     component: Layout,
     redirect: '/dashboard', //重定向
