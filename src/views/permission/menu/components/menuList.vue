@@ -47,18 +47,17 @@
             </el-table-column>
             <el-table-column label="操作">
               <template #default="scope">
-                <el-button type="primary" icon="plus"></el-button>
+                <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button>
                 <!-- 修改 -->
-                <el-button type="warning" :disabled="isDisabled(scope.row.level)" icon="edit"></el-button>
+                <el-button type="warning" @click='addOrUpdate({PmenuKey:props.row.menuKey,...scope.row})'  icon="edit"></el-button>
                 <!-- 删除 -->
-                <el-button type="danger" :disabled="isDisabled(scope.row.level)" icon="delete"></el-button>
+                <el-button type="danger"  icon="delete"></el-button>
               </template>
             </el-table-column>
           </el-table>
         </div>
       </template>
     </el-table-column>
-
     <el-table-column label="更新时间">
       <template #default="scope">
         <el-tag type="warning">
@@ -94,32 +93,34 @@
     </el-table-column>
     <el-table-column label="操作">
       <template #default="scope">
-        <el-button type="primary" icon="plus"></el-button>
+        <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button>
         <!-- 修改 -->
-        <el-button type="warning" :disabled="isDisabled(scope.row.level)" icon="edit"></el-button>
+        
+        <el-button type="warning" @click='addOrUpdate({ ...scope.row})'  icon="edit"></el-button>
         <!-- 删除 -->
-        <el-button type="danger" :disabled="isDisabled(scope.row.level)" icon="delete"></el-button>
+        <el-button type="danger" icon="delete"></el-button>
       </template>
     </el-table-column>
   </el-table>
 </template>
 <script lang="ts" setup>
-import diaLogForm from '@/views/permission/menu/components/diaLog.vue'
-import { computed, onMounted, ref } from 'vue'
-import { usePermissionMenuStore } from '@/store/permission/menu.ts'
+import { onMounted, ref, defineEmits } from 'vue'
+import { usePermissionMenuStore } from '@/store/permission/menu'
 const permissionMenuStore = usePermissionMenuStore()
-const centerDialogVisible = ref(false)
 const parentBorder = ref(false)
 const childBorder = ref(false)
 const tableLayout = ref('fixed')
+//在mounted时发送请求
 onMounted(() => {
   permissionMenuStore.getMenuList()
 })
 
-//在mounted时发送请求
-function isDisabled(row) {
-  return row == 1
+//子调用父方法
+const emits =defineEmits(['showDialog'])
+const addOrUpdate = (row:any) => {
+  emits('showDialog',row)
 }
+
 </script>
 <style lang="less" scoped>
 .el-table {
