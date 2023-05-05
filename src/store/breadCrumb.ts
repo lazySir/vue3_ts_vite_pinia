@@ -7,7 +7,7 @@ export const useBreadCrumbStore = defineStore('breadCrumb', {
         {
           path: '/',
           name: 'Home',
-          icon: 'House',
+          icon: 'i-material-symbols:home',
           title: '首页',
           redirect: '/dashboard', //重定向
           children: [{ path: 'dashboard', name: 'Dashboard' }],

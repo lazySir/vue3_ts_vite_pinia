@@ -1,7 +1,7 @@
 <template>
   <el-breadcrumb separator=">">
     <el-breadcrumb-item v-for="(item, index) in breadCrumbList">
-      <component style="width: 12px" :is="item.icon"> </component>
+      <p style="display:inline-block" :class="item.icon"></p>
       <span :class="{ active: index === breadCrumbList.length - 1 }">{{ item.title }} </span>
     </el-breadcrumb-item>
   </el-breadcrumb>
