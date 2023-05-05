@@ -20,7 +20,7 @@
 import noChildren from '@/layouts/aside/components/noChildren.vue' //没有子项的菜单
 import hasChildren from '@/layouts/aside/components/hasChildren.vue' //有子菜单的菜单
 import logoForm from '@/layouts/aside/components/logo.vue'
-import { useAsideStore } from '@/store/aside.ts'
+import { useAsideStore } from '@/store/aside'
 const asideStore = useAsideStore()
 </script>
 

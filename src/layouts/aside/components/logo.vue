@@ -5,7 +5,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useAsideStore } from '@/store/aside.ts'
+import { useAsideStore } from '@/store/aside'
 const asideStore = useAsideStore()
 </script>
 <style scoped>
