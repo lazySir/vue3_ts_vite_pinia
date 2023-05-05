@@ -1,8 +1,19 @@
 
 <template>
-<!-- 我是other组件 -->
-<div>我是other1组件</div>
-</template>
+<!-- A basic anchor icon from Phosphor icons -->
+<div class="i-ph-anchor-simple-thin" />
+<!-- An orange alarm from Material Design Icons -->
+<div class="i-mdi-alarm text-orange-400" />
+<!-- A large Vue logo -->
+<div class="i-logos-vue text-3xl" />
+<!-- Sun in light mode, Moon in dark mode, from Carbon -->
+<button class="i-carbon-sun dark:i-carbon-moon" />
+<!-- Twemoji of laugh, turns to tear on hovering -->
+<div class="i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" />
+<div class="i-material-symbols:lock" />
+<div class="i-material-symbols:home" />
+<div class="i-material-symbols:grid-view"></div>
+  </template>
 <script lang='ts' setup>
 </script>
 <style scoped>
