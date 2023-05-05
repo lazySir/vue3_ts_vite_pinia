@@ -5,3 +5,4 @@ Mock.mock('/api/logout','post',userAPI.logout)
 Mock.mock('/api/register','post',userAPI.register)
 import permissionMenuAPI from './permission/menu'
 Mock.mock('/api/permission/getMenu','get',permissionMenuAPI.getMenuList)
+Mock.mock('/api/permission/addMenu','post',permissionMenuAPI.addMenu)
