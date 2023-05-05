@@ -6,7 +6,7 @@ export const useTagBoxStore = defineStore('tagBox', {
       {
         name:'Home',
         title:'首页',
-        icon:'House',
+        icon: 'i-material-symbols:home',
       }
     ]
   }
