@@ -31,9 +31,7 @@
             <el-table-column label="权限名称">
               <template #default="scope">
                 <el-tag type="">
-                  <el-icon size="mini">
-                    <component :is="scope.row.icon" />
-                  </el-icon>
+                  <p style="display: inline-block;" :class="scope.row.icon"></p>
                   <span>{{ scope.row.menuKey }}</span>
                 </el-tag>
               </template>
@@ -47,7 +45,7 @@
             </el-table-column>
             <el-table-column label="操作">
               <template #default="scope">
-                <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button>
+                <!-- <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button> -->
                 <!-- 修改 -->
                 <el-button type="warning" @click='addOrUpdate({PmenuKey:props.row.menuKey,...scope.row})'  icon="edit"></el-button>
                 <!-- 删除 -->
@@ -77,9 +75,7 @@
     <el-table-column label="权限名称">
       <template #default="scope">
         <el-tag type="">
-          <el-icon size="mini">
-            <component :is="scope.row.icon" />
-          </el-icon>
+          <p style="display: inline-block;" :class="scope.row.icon"></p>
           <span>{{ scope.row.menuKey }}</span>
         </el-tag>
       </template>
