@@ -18,7 +18,7 @@ interface TransformedMenuData {
   parentId: number | null
   children: TransformedMenuData[]
 }
-
+//处理菜单数据
  export const transformMenuData= (menuData: MenuData[], parentId: number | null = null, level = 1): TransformedMenuData[]=> {
   const result: TransformedMenuData[] = []
 

@@ -9,7 +9,11 @@ export const reqGetMenu = () =>
 export const reqAddOrUpdateMenu = (data: any) =>{
   //更新
   if(data.menuId){
-
+    return requests({
+      url: '/permission/updateMenu',
+      method: 'put',
+      data,
+    })
   }
   //添加
   else{
@@ -19,4 +23,10 @@ export const reqAddOrUpdateMenu = (data: any) =>{
       data
     })
   }
+}
+export const reqDeleteMenu=(data:any)=>{
+  return requests({
+    url:`/permission/deleteMenu/${data}`,
+    method:'delete',
+  })
 }

@@ -7,7 +7,7 @@
     </el-radio-group>
   </span>
   <el-table :data="permissionMenuStore.menuList" :table-layout="tableLayout" stripe row-key="menuId" :border="parentBorder">
-    <el-table-column type="expand">
+    <el-table-column   type="expand">
       <template #default="props">
         <div>
           <h3>{{ props.row.menuKey }}子路由</h3>
@@ -47,9 +47,9 @@
               <template #default="scope">
                 <!-- <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button> -->
                 <!-- 修改 -->
-                <el-button type="warning" @click='addOrUpdate({PmenuKey:props.row.menuKey,...scope.row})'  icon="edit"></el-button>
+                <el-button type="warning" @click='addOrUpdate({PmenuId:props.row.menuId,PmenuKey:props.row.menuKey,...scope.row})'  icon="edit"></el-button>
                 <!-- 删除 -->
-                <el-button type="danger"  icon="delete"></el-button>
+                <el-button @click="deleteMenu(scope.row)" type="danger"  icon="delete"></el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -89,12 +89,12 @@
     </el-table-column>
     <el-table-column label="操作">
       <template #default="scope">
-        <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button>
+        <el-button type="primary" @click='addOrUpdate({PmenuId:scope.row.menuId,level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button>
         <!-- 修改 -->
         
         <el-button type="warning" @click='addOrUpdate({ ...scope.row})'  icon="edit"></el-button>
         <!-- 删除 -->
-        <el-button type="danger" icon="delete"></el-button>
+        <el-button @click="deleteMenu(scope.row)" type="danger" icon="delete"></el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -116,7 +116,10 @@ const emits =defineEmits(['showDialog'])
 const addOrUpdate = (row:any) => {
   emits('showDialog',row)
 }
-
+//删除菜单
+const deleteMenu = (row:any) => {
+  permissionMenuStore.deleteMenu(row.menuId)
+}
 </script>
 <style lang="less" scoped>
 .el-table {

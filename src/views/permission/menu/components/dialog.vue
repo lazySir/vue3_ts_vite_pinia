@@ -54,6 +54,7 @@ function showDialog(row: any = undefined) {
   if (row.menuId) {
     resetNewMenu()
     // 修改
+    newMenu.value.PmenuId= row.PmenuId
     newMenu.value.level= row.level
     newMenu.value.menuKey= row.menuKey
     newMenu.value.menuValue= row.menuValue
@@ -65,6 +66,7 @@ function showDialog(row: any = undefined) {
     // 添加
     newMenu.value.level =  row.level?  row.level+1:newMenu.value.level+1,
     newMenu.value.PmenuKey = row.menuKey
+    newMenu.value.PmenuId = row.PmenuId
   }
 }
 //计算标题
