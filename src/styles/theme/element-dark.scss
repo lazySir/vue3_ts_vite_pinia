@@ -107,4 +107,8 @@ html.dark {
       border-bottom: 1px solid var(--lazySir-border-color);
     }
   }
+  .el-button {
+    background-color: #222;
+    color: var(--w-e-textarea-color);
+  }
 }

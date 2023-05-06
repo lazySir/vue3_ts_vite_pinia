@@ -1,8 +1,15 @@
 import requests from '@/utils/request'
+const baseUrl = '/permission'
+const api={
+  get:baseUrl+'/getMenu',
+  add:baseUrl+'/addMenu',
+  update:baseUrl+'/updateMenu',
+  delete:baseUrl+`/deleteMenu`,
+}
 //获取菜单列表
 export const reqGetMenu = () =>
   requests({
-    url: '/permission/getMenu',
+    url: api.get,
     method: 'get',
   })
 //新增或修改菜单
@@ -10,7 +17,7 @@ export const reqAddOrUpdateMenu = (data: any) =>{
   //更新
   if(data.menuId){
     return requests({
-      url: '/permission/updateMenu',
+      url: api.update,
       method: 'put',
       data,
     })
@@ -18,7 +25,7 @@ export const reqAddOrUpdateMenu = (data: any) =>{
   //添加
   else{
     return requests({
-      url: '/permission/addMenu',
+      url: api.add,
       method: 'post',
       data
     })
@@ -26,7 +33,7 @@ export const reqAddOrUpdateMenu = (data: any) =>{
 }
 export const reqDeleteMenu=(data:any)=>{
   return requests({
-    url:`/permission/deleteMenu/${data}`,
+    url:api.delete+`/${data}`,
     method:'delete',
   })
 }

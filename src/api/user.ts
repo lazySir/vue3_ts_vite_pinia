@@ -1,8 +1,12 @@
 import requests from '@/utils/request'
-
+const api={
+  login:'/login',
+  register:'/register',
+  logout:'/logout'
+}
 export const reqLogin = (username: any, password: any) =>
   requests({
-    url: '/login',
+    url:api.login,
     method: 'post',
     data: {
       username,
@@ -11,7 +15,7 @@ export const reqLogin = (username: any, password: any) =>
   })
 export const reqRegister = (username: any, password: any, email: any) =>
   requests({
-    url: '/register',
+    url: api.register,
     method: 'post',
     data: {
       username,
@@ -21,6 +25,6 @@ export const reqRegister = (username: any, password: any, email: any) =>
   })
 export const reqLogout = () =>
   requests({
-    url: '/logout',
+    url: api.logout,
     method: 'post',
   })
