@@ -24,7 +24,6 @@ export default {
     let data = JSON.parse(req.body)
     data = deallUpdateMenuData(data)
     updateMenu(data)
-    console.log(menuList)
     return {
       code: 200,
       message: '修改菜单成功',
