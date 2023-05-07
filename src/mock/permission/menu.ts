@@ -1,5 +1,6 @@
 import { menuData } from './data/menuData'
 let menuList = [...menuData]
+
 export default {
   //模拟获取菜单接口
   getMenuList(req: any, res: any) {
@@ -43,7 +44,7 @@ export default {
 }
 //处理新增菜单数据的方法
 function deallAddMenuData(data: any) {
-  ;(data.name = '超级管理员'), (data.children = []), (data.date = new Date().toLocaleString('zh-CN'))
+  ;(data.avatar = '超级管理员'), (data.children = []), (data.date = new Date().toLocaleString('zh-CN'))
   if (data.level == 1) {
     data.menuId = menuList.length + 1
   } else {
@@ -65,7 +66,7 @@ function pushMenu(data: any) {
 //处理修改菜单数据的方法
 function deallUpdateMenuData(data: any) {
   data.date = new Date().toLocaleString('zh-CN')
-  data.name = '超级管理员'
+  data.avatar = '超级管理员'
   return data
 }
 //将处理后的数据修改进菜单列表

@@ -25,7 +25,7 @@
               <template #default="scope">
                 <el-tag type="success">
                   <el-icon><User /></el-icon>
-                  <span>{{ scope.row.name }}</span>
+                  <span>{{ scope.row.avatar }}</span>
                 </el-tag>
               </template>
             </el-table-column>
@@ -33,14 +33,14 @@
               <template #default="scope">
                 <el-tag type="">
                   <p style="display: inline-block" :class="scope.row.icon"></p>
-                  <span>{{ scope.row.menuKey }}</span>
+                  <span>{{ scope.row.title }}</span>
                 </el-tag>
               </template>
             </el-table-column>
             <el-table-column label="权限值">
               <template #default="scope">
                 <el-tag type="danger">
-                  <span>{{ scope.row.menuValue }}</span>
+                  <span>{{ scope.row.name }}</span>
                 </el-tag>
               </template>
             </el-table-column>
@@ -48,7 +48,7 @@
               <template #default="scope">
                 <!-- <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button> -->
                 <!-- 修改 -->
-                <el-button type="warning" @click="addOrUpdate({ PmenuId: props.row.menuId, PmenuKey: props.row.menuKey, ...scope.row })" icon="edit"></el-button>
+                <el-button type="warning" @click="addOrUpdate({ PmenuId: props.row.menuId, Ptitle: props.row.title, ...scope.row })" icon="edit"></el-button>
                 <!-- 删除 -->
                 <el-button @click="deleteMenu(scope.row)" type="danger" icon="delete"></el-button>
               </template>
@@ -70,7 +70,7 @@
       <template #default="scope">
         <el-tag type="success">
           <el-icon><User /></el-icon>
-          <span>{{ scope.row.name }}</span>
+          <span>{{ scope.row.avatar }}</span>
         </el-tag>
       </template>
     </el-table-column>
@@ -78,14 +78,14 @@
       <template #default="scope">
         <el-tag type="">
           <p style="display: inline-block" :class="scope.row.icon"></p>
-          <span>{{ scope.row.menuKey }}</span>
+          <span>{{ scope.row.title }}</span>
         </el-tag>
       </template>
     </el-table-column>
     <el-table-column label="权限值">
       <template #default="scope">
         <el-tag type="danger">
-          <span>{{ scope.row.menuValue }}</span>
+          <span>{{ scope.row.name }}</span>
         </el-tag>
       </template>
     </el-table-column>
@@ -96,9 +96,8 @@
       </template>
       <!-- 操作 -->
       <template #default="scope">
-        <el-button type="primary" @click="addOrUpdate({ PmenuId: scope.row.menuId, level: scope.row.level, menuKey: scope.row.menuKey })" icon="plus"></el-button>
+        <el-button type="primary" @click="addOrUpdate({ PmenuId: scope.row.menuId, level: scope.row.level, Ptitle: scope.row.title })" icon="plus"></el-button>
         <!-- 修改 -->
-
         <el-button type="warning" @click="addOrUpdate({ ...scope.row })" icon="edit"></el-button>
         <!-- 删除 -->
         <el-button @click="deleteMenu(scope.row)" type="danger" icon="delete"></el-button>
@@ -128,7 +127,7 @@ const deleteMenu = (row: any) => {
 }
 //搜索
 const search = ref('')
-const filterTableData = computed(() => permissionMenuStore.menuList.filter((data: any) => !search.value || data.menuKey.toLowerCase().includes(search.value.toLowerCase())))
+const filterTableData = computed(() => permissionMenuStore.menuList.filter((data: any) => !search.value || data.title.toLowerCase().includes(search.value.toLowerCase())))
 </script>
 <style lang="scss" scoped>
 @import './menuList.scss'

@@ -2,13 +2,13 @@
   <el-dialog v-model="dialogVisible" :title="title" width="30%" align-center>
     <el-form :model="newMenu" label-width="100px">
       <el-form-item v-if="newMenu.level > 1" label="父级路由名称">
-        <el-input disabled v-model="newMenu.PmenuKey" placeholder=""></el-input>
+        <el-input disabled v-model="newMenu.Ptitle" placeholder=""></el-input>
       </el-form-item>
       <el-form-item label="权限名称">
-        <el-input prop="menuKey" v-model="newMenu.menuKey" placeholder=""></el-input>
+        <el-input prop="menuKey" v-model="newMenu.title" placeholder=""></el-input>
       </el-form-item>
       <el-form-item label="权限值">
-        <el-input prop="menuValue" v-model="newMenu.menuValue" placeholder=""></el-input>
+        <el-input prop="menuValue" v-model="newMenu.name" placeholder=""></el-input>
       </el-form-item>
       <el-form-item label="图标">
         <el-popover :width="300" popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 20px;">
@@ -56,16 +56,16 @@ function showDialog(row: any = undefined) {
     // 修改
     newMenu.value.PmenuId= row.PmenuId
     newMenu.value.level= row.level
-    newMenu.value.menuKey= row.menuKey
-    newMenu.value.menuValue= row.menuValue
+    newMenu.value.title= row.title
+    newMenu.value.name= row.name
     newMenu.value.icon= row.icon
     newMenu.value.menuId= row.menuId
-    newMenu.value.PmenuKey= row.PmenuKey
+    newMenu.value.Ptitle= row.Ptitle
   } else {
     resetNewMenu()
     // 添加
     newMenu.value.level =  row.level?  row.level+1:newMenu.value.level+1,
-    newMenu.value.PmenuKey = row.menuKey
+    newMenu.value.Ptitle = row.Ptitle
     newMenu.value.PmenuId = row.PmenuId
   }
 }
@@ -98,13 +98,16 @@ function cancel() {
 //确定按钮
 function confirm() {
   //检验newMenu的menuKey和menuValue是否为空
-  if (!newMenu.value.menuKey || !newMenu.value.menuValue) {
+  if (!newMenu.value.title || !newMenu.value.name) {
     return ElMessage.error('权限名称或权限值不能为空')
   }
   //关闭对话框
   dialogVisible.value = false
+  //删除Ptitle属性
+  delete newMenu.value.Ptitle
   //发送请求
   permissionMenuStore.addOrUpdateMenu(newMenu.value)
+  resetNewMenu()
 }
 //暴露方法
 defineExpose({ showDialog })

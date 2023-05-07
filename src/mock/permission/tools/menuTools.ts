@@ -1,53 +1,14 @@
-interface MenuData {
-  path: string
-  name: string
-  icon?: string
-  title: string
-  component: any // 此处需要根据实际类型进行修改
-  children?: MenuData[]
-}
+export function transformMenuData(routes: any[], level: number = 1, parentMenuId: number = 0) {
+  let currentId = 1
+  for (const route of routes) {
+    route.menuId = parentMenuId + currentId++
+    route.level = level
+    route.date = new Date().toLocaleString('zh-CN')
+    route.avatar = '超级管理员'
 
-interface TransformedMenuData {
-  menuId: number
-  date: string
-  name: string
-  menuKey: string
-  menuValue: string
-  icon: string
-  level: number
-  parentId: number | null
-  children: TransformedMenuData[]
-}
-//处理菜单数据
- export const transformMenuData= (menuData: MenuData[], parentId: number | null = null, level = 1): TransformedMenuData[]=> {
-  const result: TransformedMenuData[] = []
-
-  menuData.forEach((menu, index) => {
-    const date = new Date().toLocaleString('zh-CN')
-    const { name, title, children } = menu
-    const menuId = parentId ? parentId * 100 + index : index + 1
-    const menuKey = title
-    const menuValue = name
-    const icon = menu.icon || ''
-
-    const newMenu: TransformedMenuData = {
-      menuId,
-      date,
-      menuKey,
-      menuValue,
-      icon,
-      level,
-      parentId,
-      name: '超级管理员',
-      children: [],
+    if (route.children && route.children.length) {
+      transformMenuData(route.children, level + 1, (route.menuId * 100))
     }
-
-    if (children && children.length > 0) {
-      newMenu.children = transformMenuData(children, menuId, level + 1)
-    }
-
-    result.push(newMenu)
-  })
-
-  return result
+  }
+  return routes
 }
