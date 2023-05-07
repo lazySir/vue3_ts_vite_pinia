@@ -1,6 +1,6 @@
 <template>
-  <span class="switchBorder"> 父级边框: <el-switch v-model="parentBorder" /> 子级边框: <el-switch v-model="childBorder" /> </span>
-    <!-- 配置栏 -->
+  <span class="switchBorder"> 父级边框: <el-switch v-model="parentBorder" /> 子级边框: <el-switch v-model="childBorder" /> 文字模式：<el-switch v-model="textMode" /> </span>
+  <!-- 配置栏 -->
   <span class="radioLayout">
     <el-radio-group v-model="tableLayout">
       <el-radio-button label="fixed">均衡</el-radio-button>
@@ -52,13 +52,21 @@
                 </el-tag>
               </template>
             </el-table-column>
-            <el-table-column  label="操作">
+            <el-table-column label="操作">
               <template #default="scope">
+                <div v-if="!textMode">
                 <!-- <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button> -->
                 <!-- 修改 -->
                 <el-button type="warning" @click="addOrUpdate({ PmenuId: props.row.menuId, Ptitle: props.row.title, ...scope.row })" icon="edit"></el-button>
                 <!-- 删除 -->
                 <el-button @click="deleteMenu(scope.row)" type="danger" icon="delete"></el-button>
+                </div>
+
+                <!-- 文字模式 -->
+                <div v-else>
+                  <span  @click="addOrUpdate({ PmenuId: props.row.menuId, Ptitle: props.row.title, ...scope.row })"  class="text_btn">修改</span>
+                  <span @click="deleteMenu(scope.row)" class="text_btn">删除</span>
+                </div>
               </template>
             </el-table-column>
           </el-table>
@@ -111,11 +119,20 @@
       </template>
       <!-- 操作 -->
       <template #default="scope">
-        <el-button type="primary" @click="addOrUpdate({ PmenuId: scope.row.menuId, level: scope.row.level, Ptitle: scope.row.title })" icon="plus"></el-button>
-        <!-- 修改 -->
-        <el-button type="warning" @click="addOrUpdate({ ...scope.row })" icon="edit"></el-button>
-        <!-- 删除 -->
-        <el-button @click="deleteMenu(scope.row)" type="danger" icon="delete"></el-button>
+        <!-- 按钮模式 -->
+        <div v-if="!textMode">
+          <el-button type="primary" @click="addOrUpdate({ PmenuId: scope.row.menuId, level: scope.row.level, Ptitle: scope.row.title })" icon="plus"></el-button>
+          <!-- 修改 -->
+          <el-button type="warning" @click="addOrUpdate({ ...scope.row })" icon="edit"></el-button>
+          <!-- 删除 -->
+          <el-button @click="deleteMenu(scope.row)" type="danger" icon="delete"></el-button>
+        </div>
+        <!-- 文字模式 -->
+        <div v-else>
+          <span @click="addOrUpdate({ PmenuId: scope.row.menuId, level: scope.row.level, Ptitle: scope.row.title })" class="text_btn">添加</span>
+          <span  @click="addOrUpdate({ ...scope.row })" class="text_btn">修改</span>
+          <span @click="deleteMenu(scope.row)" class="text_btn">删除</span>
+        </div>
       </template>
     </el-table-column>
   </el-table>
@@ -124,9 +141,14 @@
 import { onMounted, ref, defineEmits, computed } from 'vue'
 import { usePermissionMenuStore } from '@/store/permission/menu'
 const permissionMenuStore = usePermissionMenuStore()
+//父级边框
 const parentBorder = ref(false)
+//子级边框
 const childBorder = ref(false)
+//表格布局
 const tableLayout = ref('fixed')
+//文字模式
+const textMode = ref(false)
 //在mounted时发送请求
 onMounted(() => {
   permissionMenuStore.getMenuList()
