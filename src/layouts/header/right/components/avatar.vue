@@ -27,7 +27,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useUserStore } from '@/store/user.ts'
+import { useUserStore } from '@/store/user'
 const userStore = useUserStore()
 let isActive = ref(true)
 const changeActive = (): void => {
