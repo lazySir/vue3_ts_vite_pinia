@@ -9,16 +9,13 @@
     text-color="#333333">
       <!-- 头部 -->
       <logoForm />
-      <!-- 无子项 -->
-      <noChildren />
-      <!-- 有子项 -->
-      <hasChildren />
+      <!-- 菜单 -->
+      <subMenu />
     </el-menu>
   </div>
 </template>
 <script lang="ts" setup>
-import noChildren from '@/layouts/aside/components/noChildren.vue' //没有子项的菜单
-import hasChildren from '@/layouts/aside/components/hasChildren.vue' //有子菜单的菜单
+import subMenu from '@/layouts/aside/components/subMenu.vue' //子菜单
 import logoForm from '@/layouts/aside/components/logo.vue'
 import { useAsideStore } from '@/store/aside'
 const asideStore = useAsideStore()

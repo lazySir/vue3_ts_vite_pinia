@@ -11,14 +11,10 @@ export const useAsideStore = defineStore('Aside', {
     }
   },
   getters: {
-    //没有子项的菜单 使用computed代替filter 返回routes数组中 routes.children与children.length===1
-    noChildren(): any {
-      return this.routes.filter((item: any) => item.children && item.children.length === 1)
-    },
-    //有子xiang的菜单 使用computed代替filter 返回routes数组中 routes.children与children.length>1
-    hasChildren(): any {
-      return this.routes.filter((item: any) => item.children && item.children.length > 1)
-    },
+    //过滤掉非菜单路由
+    filterRoutes(): any {
+      return this.routes.filter((item: any) => item.children)
+    }
   },
   actions: {
     //切换侧边栏折叠状态
