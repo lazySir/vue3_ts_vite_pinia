@@ -60,14 +60,14 @@ export let asyncRoutes: any = [
     title: '其他',
     component: Layout,
     icon: 'i-basil:other-1-outline',
-    sort: 1,
+    sort: 4,
     children: [
       {
         path: 'other1',
         name: 'Other1',
         title: '页面1',
         icon: 'i-material-symbols:grid-view',
-        sort: 4,
+        sort: 1,
         component: Other1,
       },
       {
@@ -75,7 +75,7 @@ export let asyncRoutes: any = [
         name: 'Other2',
         title: '页面2',
         icon: 'i-material-symbols:grid-view',
-        sort: 1,
+        sort: 2,
         component: Other2,
       },
     ],

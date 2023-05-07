@@ -1,9 +1,10 @@
 import { menuData } from './data/menuData'
 let menuList = [...menuData]
-
+import {sortRoutes} from '@/mock/permission/tools/menuTools'
 export default {
   //模拟获取菜单接口
   getMenuList(req: any, res: any) {
+    menuList = sortRoutes(menuList)
     return {
       code: 200,
       message: '获取菜单成功',

@@ -12,3 +12,12 @@ export function transformMenuData(routes: any[], level: number = 1, parentMenuId
   }
   return routes
 }
+export function sortRoutes(routes: any[]) {
+  routes.sort((a: any, b: any) => a.sort - b.sort)
+  routes.forEach((route: any) => {
+    if (route.children && route.children.length > 0) {
+      sortRoutes(route.children)
+    }
+  })
+  return routes
+}

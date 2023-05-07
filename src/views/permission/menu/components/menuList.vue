@@ -1,5 +1,6 @@
 <template>
   <span class="switchBorder"> 父级边框: <el-switch v-model="parentBorder" /> 子级边框: <el-switch v-model="childBorder" /> </span>
+    <!-- 配置栏 -->
   <span class="radioLayout">
     <el-radio-group v-model="tableLayout">
       <el-radio-button label="fixed">均衡</el-radio-button>
@@ -44,7 +45,14 @@
                 </el-tag>
               </template>
             </el-table-column>
-            <el-table-column label="操作">
+            <el-table-column sortable prop="sort" label="排序值">
+              <template #default="scope">
+                <el-tag type="success">
+                  <span>{{ scope.row.sort }}</span>
+                </el-tag>
+              </template>
+            </el-table-column>
+            <el-table-column  label="操作">
               <template #default="scope">
                 <!-- <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button> -->
                 <!-- 修改 -->
@@ -89,6 +97,13 @@
         </el-tag>
       </template>
     </el-table-column>
+    <el-table-column sortable prop="sort" label="排序值">
+      <template #default="scope">
+        <el-tag type="success">
+          <span>{{ scope.row.sort }}</span>
+        </el-tag>
+      </template>
+    </el-table-column>
     <!-- 搜索 -->
     <el-table-column align="right">
       <template #header>
@@ -130,5 +145,5 @@ const search = ref('')
 const filterTableData = computed(() => permissionMenuStore.menuList.filter((data: any) => !search.value || data.title.toLowerCase().includes(search.value.toLowerCase())))
 </script>
 <style lang="scss" scoped>
-@import './menuList.scss'
+@import './menuList.scss';
 </style>

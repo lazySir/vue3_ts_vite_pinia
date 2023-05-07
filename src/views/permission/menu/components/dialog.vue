@@ -24,6 +24,9 @@
           </template>
         </el-popover>
       </el-form-item>
+      <el-form-item label="排序值">
+        <el-input prop="menuValue" v-model="newMenu.sort" placeholder=""></el-input>
+      </el-form-item>
     </el-form>
     <template #footer>
       <span class="dialog-footer">
@@ -61,6 +64,7 @@ function showDialog(row: any = undefined) {
     newMenu.value.icon= row.icon
     newMenu.value.menuId= row.menuId
     newMenu.value.Ptitle= row.Ptitle
+    newMenu.value.sort = row.sort
   } else {
     resetNewMenu()
     // 添加
