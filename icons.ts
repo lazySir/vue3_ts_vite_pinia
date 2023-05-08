@@ -7,4 +7,7 @@ export default [
   'i-material-symbols:person',
   'i-carbon:user-avatar-filled',
   'i-material-symbols:grid-view',
+  'i-line-md:edit',
+  'i-material-symbols:delete-outline',
+  'i-ic:round-alarm',
 ]
