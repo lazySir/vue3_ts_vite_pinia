@@ -10,4 +10,5 @@ export const permissionMenuApi={
 
 export const permissionRoleApi ={
   get:permissionBaseUrl+'/getRole',
+  update:permissionBaseUrl+'/updateRole',
 }

@@ -18,3 +18,4 @@ Mock.mock(permissionMenuApi.delete,'delete',permissionMenu.deleteMenu)
 import { permissionRoleApi } from './permission/permissionApi'
 import permissionRole from './permission/role'
 Mock.mock(permissionRoleApi.get,'get',permissionRole.getRoleList)
+Mock.mock(permissionRoleApi.update,'put',permissionRole.updateRole)

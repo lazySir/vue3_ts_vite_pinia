@@ -23,8 +23,8 @@
       </el-form>
       <!-- 尾部 -->
       <div class="drawer__footer">
-        <el-button type="danger" @click="">取消编辑</el-button>
-        <el-button type="primary">确认修改</el-button>
+        <el-button type="danger" @click="handleClose">取消编辑</el-button>
+        <el-button type="primary" @click="confirm">确认修改</el-button>
       </div>
     </div>
   </el-drawer>
@@ -34,7 +34,10 @@
 import { ref, defineExpose, computed, onMounted, nextTick } from 'vue'
 import { ElDrawer } from 'element-plus'
 import { usePermissionMenuStore } from '@/store/permission/menu'
+import { usePermissionRoleStore } from '@/store/permission/role'
+const permissionRoleStore = usePermissionRoleStore()
 const permissionMenuStore = usePermissionMenuStore()
+
 onMounted(() => {
   permissionMenuStore.getMenuList()
 })
@@ -64,7 +67,7 @@ const openDrawer = (val: any) => {
   role.value = JSON.parse(JSON.stringify(val))
   setCheckedKeys(role.value.menuIdList)
 }
-//关闭抽屉的回调
+//关闭抽屉的回调 与取消编辑
 const handleClose = () => {
   drawer.value = false
   resetRole()
@@ -75,6 +78,15 @@ const setCheckedKeys = (keys: any) => {
   nextTick(() => {
     treeRef.value.setCheckedKeys(keys)
   })
+}
+///确认修改
+const confirm = () => {
+  const checkedKeys = treeRef.value.getCheckedKeys()
+  role.value.menuIdList = checkedKeys
+  //发送请求
+  permissionRoleStore.addOrUpdateRole(role.value)
+  //关闭抽屉
+  handleClose()
 }
 //计算标题
 const title = computed(() => {
