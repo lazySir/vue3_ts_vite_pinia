@@ -1,7 +1,9 @@
 <template>
+  <el-button type="primary" icon="plus">添加角色</el-button>
   <el-button type="danger" class="delete" icon="delete">批量删除</el-button>
   <span class="parentBorder">显示边框: <el-switch v-model="parentBorder" /></span>
-  <el-table @selection-change="handleSelectionChange" :border="parentBorder" :data="roleData" style="width: 100%">
+  <el-input v-model="search" placeholder="请输入角色名称搜索" :suffix-icon="Search" style="border-radius: 400px; margin-left: 30px; width: 200px"></el-input>
+  <el-table @selection-change="handleSelectionChange" :border="parentBorder" :data="filterRoleList" style="width: 100%">
     <el-table-column type="selection" width="55" />
     <el-table-column align="center" prop="name" label="名称" width="100" />
     <el-table-column prop="code" label="状态" width="70">
@@ -9,10 +11,10 @@
         <el-tag :type="scope.row.code ? 'success' : 'danger'">{{ scope.row.code ? '启用' : '禁用' }}</el-tag>
       </template>
     </el-table-column>
-    <el-table-column align="center" prop="date" label="创建时间" width="200" >
-      <template #default = 'scope'>
+    <el-table-column align="center" prop="date" label="创建时间" width="200">
+      <template #default="scope">
         <p class="i-ic:round-alarm"></p>
-        <span>{{  scope.row.date}}</span>
+        <span>{{ scope.row.date }}</span>
       </template>
     </el-table-column>
     <el-table-column prop="remarks" label="备注" width="" />
@@ -25,18 +27,25 @@
   </el-table>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
+import { ref, onMounted,computed } from 'vue'
+import { usePermissionRoleStore } from '@/store/permission/role'
+import { Search } from '@element-plus/icons-vue'
+const permissionRoleStore = usePermissionRoleStore()
 const parentBorder = ref(true)
 const selected = ref([])
+let search = ref('')
 //将被选择的行的数据存储在selected中
-const handleSelectionChange = (val:any)=> {
+const handleSelectionChange = (val: any) => {
   selected.value = val
 }
-let roleData = reactive([
-  { roleId: 1, name: 'Boss', remarks: '超级管理员', date: '2023/5/7 00:00:00', menuIdList: [1, 2, 3, 4], code: true },
-  { roleId: 2, name: 'tourist', remarks: '游客', date: '2023/5/8 23:39:00', menuIdList: [2, 3, 4], code: true },
-  { roleId: 3, name: 'text', remarks: '测试', date: '2023/5/8 23:39:00', menuIdList: [3, 4], code: false },
-])
+//获取角色列表
+onMounted(() => {
+  permissionRoleStore.getRoleList()
+})
+//搜索
+const filterRoleList=computed(()=>{
+  return permissionRoleStore.roleList.filter((data: any) => !search.value || data.name.toLowerCase().includes(search.value.toLowerCase()))
+})
 </script>
 <style lang="scss" scoped>
 .el-table {
@@ -57,4 +66,5 @@ p {
 .delete {
   margin-left: 10px;
 }
+
 </style>

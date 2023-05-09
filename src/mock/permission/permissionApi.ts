@@ -7,3 +7,7 @@ export const permissionMenuApi={
   update:permissionBaseUrl+'/updateMenu',
   delete:/\/api\/permission\/deleteMenu\/\d+/,
 }
+
+export const permissionRoleApi ={
+  get:permissionBaseUrl+'/getRole',
+}
