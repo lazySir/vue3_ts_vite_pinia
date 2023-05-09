@@ -1,7 +1,7 @@
 <template>
   <el-button type="primary" icon="plus">添加角色</el-button>
   <el-button type="danger" class="delete" icon="delete">批量删除</el-button>
-  <span class="parentBorder">显示边框: <el-switch v-model="parentBorder" /></span>
+ <span class="parentBorder">显示边框: <el-switch v-model="parentBorder" /></span>
   <el-input v-model="search" placeholder="请输入角色名称搜索" :suffix-icon="Search" style="border-radius: 400px; margin-left: 30px; width: 200px"></el-input>
   <el-table @selection-change="handleSelectionChange" :border="parentBorder" :data="filterRoleList" style="width: 100%">
     <el-table-column type="selection" width="55" />
@@ -20,20 +20,21 @@
     <el-table-column prop="remarks" label="备注" width="" />
     <el-table-column align="center" label="操作" width="100">
       <template #default="scope">
-        <p style="color: rgb(106, 158, 226)" class="i-line-md:edit"></p>
+        <p @click="edit(scope.row)" style="color: rgb(106, 158, 226)" class="i-line-md:edit"></p>
         <p style="color: rgb(255, 0, 0)" class="i-material-symbols:delete-outline"></p>
       </template>
     </el-table-column>
   </el-table>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted,computed } from 'vue'
+import { ref, onMounted,computed,defineEmits} from 'vue'
 import { usePermissionRoleStore } from '@/store/permission/role'
 import { Search } from '@element-plus/icons-vue'
 const permissionRoleStore = usePermissionRoleStore()
 const parentBorder = ref(true)
 const selected = ref([])
 let search = ref('')
+
 //将被选择的行的数据存储在selected中
 const handleSelectionChange = (val: any) => {
   selected.value = val
@@ -46,6 +47,12 @@ onMounted(() => {
 const filterRoleList=computed(()=>{
   return permissionRoleStore.roleList.filter((data: any) => !search.value || data.name.toLowerCase().includes(search.value.toLowerCase()))
 })
+//编辑
+//子调用父方法
+const emits = defineEmits(['openDrawer'])
+const edit = (val:any) => {
+  emits('openDrawer',val)
+}
 </script>
 <style lang="scss" scoped>
 .el-table {
@@ -65,6 +72,13 @@ p {
 }
 .delete {
   margin-left: 10px;
+}
+
+.example-showcase .el-dropdown-link {
+  cursor: pointer;
+  color: var(--el-color-primary);
+  display: flex;
+  align-items: center;
 }
 
 </style>
