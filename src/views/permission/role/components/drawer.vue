@@ -11,7 +11,7 @@
         <el-form-item label="启用状态" label-width="80px">
           <el-switch v-model="role.code" active-color="#13ce66" />
         </el-form-item>
-        <el-form-item label="创建时间" label-width="80px">
+        <el-form-item v-if="role.date" label="创建时间" label-width="80px">
           <el-input disabled v-model="role.date" autocomplete="off" />
         </el-form-item>
         <el-form-item label="备注" label-width="80px">
@@ -23,8 +23,8 @@
       </el-form>
       <!-- 尾部 -->
       <div class="drawer__footer">
-        <el-button type="danger" @click="handleClose">取消编辑</el-button>
-        <el-button type="primary" @click="confirm">确认修改</el-button>
+        <el-button type="danger" @click="handleClose">取消</el-button>
+        <el-button type="primary" @click="confirm">确认</el-button>
       </div>
     </div>
   </el-drawer>
@@ -65,7 +65,7 @@ const openDrawer = (val: any) => {
   resetRole()
   drawer.value = true
   role.value = JSON.parse(JSON.stringify(val))
-  setCheckedKeys(role.value.menuIdList)
+  role.value.menuIdList?setCheckedKeys(role.value.menuIdList):setCheckedKeys([])
 }
 //关闭抽屉的回调 与取消编辑
 const handleClose = () => {

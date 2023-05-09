@@ -1,4 +1,4 @@
-import {roleData} from '@/mock/permission/data/roleData'
+import { roleData } from '@/mock/permission/data/roleData'
 const roleList = [...roleData]
 export default {
   //模拟获取角色列表接口
@@ -17,12 +17,25 @@ export default {
       code: 200,
       message: `修改${data.name}成功`,
     }
-  }
+  },
+  //新增角色接口
+  addRole(req: any, res: any) {
+    const data = JSON.parse(req.body)
+    add(data)
+    return {
+      code: 200,
+      message: `新增${data.name}成功`,
+    }
+  },
 }
-function update(val:any){
+function update(val: any) {
   //根据val.roleId找到roleList中对应的角色 并将角色修改为val
-  const index = roleList.findIndex((item:any)=>item.roleId==val.roleId)
+  const index = roleList.findIndex((item: any) => item.roleId == val.roleId)
   roleList[index] = val
-
-
+}
+function add(val: any) {
+  val.date = new Date().toLocaleString('zh-CN')
+  val.roleId = roleList[roleList.length - 1].roleId + 1
+  //将val添加到roleList中
+  roleList.push(val)
 }

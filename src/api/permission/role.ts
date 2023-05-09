@@ -3,6 +3,7 @@ const baseUrl = '/permission'
 const api={
   get:baseUrl+'/getRole',
   update:baseUrl+'/updateRole',
+  add:baseUrl+'/addRole',
 
 }
 //获取菜单列表
@@ -19,6 +20,12 @@ export const reqAddOrUpdateRole = (data: any) =>
     return requests({
       url: api.update,
       method: 'put',
+      data
+    })
+  }else{
+    return requests({
+      url: api.add,
+      method: 'post',
       data
     })
   }

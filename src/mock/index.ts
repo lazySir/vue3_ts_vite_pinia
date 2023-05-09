@@ -19,3 +19,4 @@ import { permissionRoleApi } from './permission/permissionApi'
 import permissionRole from './permission/role'
 Mock.mock(permissionRoleApi.get,'get',permissionRole.getRoleList)
 Mock.mock(permissionRoleApi.update,'put',permissionRole.updateRole)
+Mock.mock(permissionRoleApi.add,'post',permissionRole.addRole)
