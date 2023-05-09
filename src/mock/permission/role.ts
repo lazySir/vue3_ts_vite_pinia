@@ -27,6 +27,17 @@ export default {
       message: `新增${data.name}成功`,
     }
   },
+  //删除角色接口
+  deleteRole(req: any, res: any) {
+    const { url } = req
+    const reg = /\d/g
+    const roleId = url.match(reg).join('')
+    del(roleId)
+    return {
+      code: 200,
+      message: `删除成功`,
+    }
+  }
 }
 function update(val: any) {
   //根据val.roleId找到roleList中对应的角色 并将角色修改为val
@@ -38,4 +49,10 @@ function add(val: any) {
   val.roleId = roleList[roleList.length - 1].roleId + 1
   //将val添加到roleList中
   roleList.push(val)
+}
+
+function del(val:any){
+  //根据val.roleId找到roleList中对应的角色 并将qi角色从roleList中删除 
+  const index = roleList.findIndex((item: any) => item.roleId == val)
+  roleList.splice(index,1)
 }

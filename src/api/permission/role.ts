@@ -1,10 +1,10 @@
 import requests from '@/utils/request'
 const baseUrl = '/permission'
-const api={
-  get:baseUrl+'/getRole',
-  update:baseUrl+'/updateRole',
-  add:baseUrl+'/addRole',
-
+const api = {
+  get: baseUrl + '/getRole',
+  update: baseUrl + '/updateRole',
+  add: baseUrl + '/addRole',
+  delete: baseUrl + '/deleteRole',
 }
 //获取菜单列表
 export const reqGetRole = () =>
@@ -14,19 +14,24 @@ export const reqGetRole = () =>
   })
 
 //新增或修改菜单
-export const reqAddOrUpdateRole = (data: any) =>
-{
-  if(data.roleId){
+export const reqAddOrUpdateRole = (data: any) => {
+  if (data.roleId) {
     return requests({
       url: api.update,
       method: 'put',
-      data
+      data,
     })
-  }else{
+  } else {
     return requests({
       url: api.add,
       method: 'post',
-      data
+      data,
     })
   }
 }
+//删除角色
+export const reqDeleteRole = (id: number) =>
+  requests({
+    url:api.delete+`/${id}`,
+    method: 'delete',
+  })

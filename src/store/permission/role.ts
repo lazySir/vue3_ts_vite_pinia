@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { reqGetRole,reqAddOrUpdateRole} from '@/api/permission/role'
+import { reqGetRole,reqAddOrUpdateRole,reqDeleteRole} from '@/api/permission/role'
 import { ElMessage } from 'element-plus'
 export const usePermissionRoleStore = defineStore('permissionRole', {
   state: () => {
@@ -19,6 +19,14 @@ export const usePermissionRoleStore = defineStore('permissionRole', {
     //新增或修改角色
     async addOrUpdateRole(val:any){
       const res: any = await reqAddOrUpdateRole(val)
+      if (res.code == 200) {
+        this.getRoleList()
+        ElMessage.success(res.message)
+      }
+    },
+    //删除角色
+    async deleteRole (id:number){
+      const res: any = await reqDeleteRole(id)
       if (res.code == 200) {
         this.getRoleList()
         ElMessage.success(res.message)

@@ -12,4 +12,5 @@ export const permissionRoleApi ={
   get:permissionBaseUrl+'/getRole',
   update:permissionBaseUrl+'/updateRole',
   add:permissionBaseUrl+'/addRole',
+  delete:/\/api\/permission\/deleteRole\/\d+/,
 }

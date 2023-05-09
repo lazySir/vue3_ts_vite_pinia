@@ -21,7 +21,7 @@
     <el-table-column align="center" label="操作" width="100">
       <template #default="scope">
         <p @click="edit(scope.row)" style="color: rgb(106, 158, 226)" class="i-line-md:edit"></p>
-        <p style="color: rgb(255, 0, 0)" class="i-material-symbols:delete-outline"></p>
+        <p @click="deleteRole(scope.row.roleId)" style="color: rgb(255, 0, 0)" class="i-material-symbols:delete-outline"></p>
       </template>
     </el-table-column>
   </el-table>
@@ -39,6 +39,10 @@ let search = ref('')
 const handleSelectionChange = (val: any) => {
   selected.value = val
 }
+//删除角色
+const deleteRole = (val: any) => {
+  permissionRoleStore.deleteRole(val)
+}
 //获取角色列表
 onMounted(() => {
   permissionRoleStore.getRoleList()
@@ -49,6 +53,7 @@ const filterRoleList=computed(()=>{
 })
 //子调用父方法
 const emits = defineEmits(['openDrawer'])
+//添加和编辑 ---> 打开抽屉
 const edit = (val:any) => {
   emits('openDrawer',val)
 }
