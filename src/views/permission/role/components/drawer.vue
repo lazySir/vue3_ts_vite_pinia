@@ -1,5 +1,5 @@
 <template>
-  <el-drawer :direction="direction" :before-close="handleClose" v-model="drawer" :title="title" size="35%">
+  <el-drawer :direction="direction" :before-close="handleClose" v-model="drawer" :title="title" size="30%">
     <!-- 整体内容 -->
     <div class="drawer_content">
       <!-- 角色信息 -->
@@ -19,31 +19,36 @@
         </el-form-item>
         <div class="header_text">权限编辑</div>
         <!-- 树形结构 -->
-        <el-tree :data="permissionMenuStore.menuList" show-checkbox node-key="menuId" :default-expanded-keys="role.menuIdList" :default-checked-keys="role.menuIdList" :props="defaultProps" />
+        <el-tree ref="treeRef" :data="permissionMenuStore.menuList" show-checkbox node-key="menuId" default-expand-all :props="defaultProps" />
       </el-form>
       <!-- 尾部 -->
       <div class="drawer__footer">
-        <el-button @click="">确认修改</el-button>
-        <el-button type="primary">取消</el-button>
+        <el-button type="danger" @click="">取消编辑</el-button>
+        <el-button type="primary">确认修改</el-button>
       </div>
     </div>
   </el-drawer>
 </template>
 
 <script lang="ts" setup>
-import { ref, defineExpose, computed, onMounted } from 'vue'
+import { ref, defineExpose, computed, onMounted, nextTick } from 'vue'
 import { ElDrawer } from 'element-plus'
 import { usePermissionMenuStore } from '@/store/permission/menu'
 const permissionMenuStore = usePermissionMenuStore()
 onMounted(() => {
   permissionMenuStore.getMenuList()
 })
+const treeRef = ref<any>(null)
+//树形控件参数配置
 const defaultProps = {
   children: 'children',
   label: 'title',
 }
-const direction = ref('rtl')
+//树形空间展开方向
+const direction = ref<any>('rtl')
+//是否显示抽屉
 const drawer = ref(false)
+//编辑的角色信息
 const role = ref({
   name: '',
   code: '',
@@ -51,16 +56,25 @@ const role = ref({
   remarks: '',
   menuIdList: [],
 })
+
 //打开抽屉
 const openDrawer = (val: any) => {
   resetRole()
   drawer.value = true
   role.value = JSON.parse(JSON.stringify(val))
+  setCheckedKeys(role.value.menuIdList)
 }
 //关闭抽屉的回调
 const handleClose = () => {
   drawer.value = false
   resetRole()
+}
+// 设置节点的选中状态
+const setCheckedKeys = (keys: any) => {
+  //要等树形组件渲染完毕后才可以设置选中状态
+  nextTick(() => {
+    treeRef.value.setCheckedKeys(keys)
+  })
 }
 //计算标题
 const title = computed(() => {
@@ -74,7 +88,6 @@ const resetRole = () => {
     date: '',
     remarks: '',
     menuIdList: [],
-
   }
 }
 //修改抽屉方向
