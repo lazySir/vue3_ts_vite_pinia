@@ -1,6 +1,6 @@
 <template>
   <el-button type="primary" @click="edit" icon="plus">添加角色</el-button>
-  <el-button type="danger" @click="delList" class="delete" icon="delete">批量删除</el-button>
+  <el-button type="danger" @click="delList" :disabled="selected.length>1?false:true" class="delete" icon="delete">批量删除</el-button>
   <span class="parentBorder">显示边框: <el-switch v-model="parentBorder" /></span>
   <el-input v-model="search" placeholder="请输入角色名称搜索" :suffix-icon="Search" style="border-radius: 400px; margin-left: 30px; width: 200px"></el-input>
   <el-table @selection-change="handleSelectionChange" :border="parentBorder" :data="filterRoleList" style="width: 100%">
