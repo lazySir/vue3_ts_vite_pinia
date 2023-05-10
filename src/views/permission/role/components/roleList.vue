@@ -1,7 +1,7 @@
 <template>
   <el-button type="primary" @click="edit" icon="plus">添加角色</el-button>
-  <el-button type="danger" class="delete" icon="delete">批量删除</el-button>
- <span class="parentBorder">显示边框: <el-switch v-model="parentBorder" /></span>
+  <el-button type="danger" @click="delList" class="delete" icon="delete">批量删除</el-button>
+  <span class="parentBorder">显示边框: <el-switch v-model="parentBorder" /></span>
   <el-input v-model="search" placeholder="请输入角色名称搜索" :suffix-icon="Search" style="border-radius: 400px; margin-left: 30px; width: 200px"></el-input>
   <el-table @selection-change="handleSelectionChange" :border="parentBorder" :data="filterRoleList" style="width: 100%">
     <el-table-column type="selection" width="55" />
@@ -27,7 +27,7 @@
   </el-table>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted,computed,defineEmits} from 'vue'
+import { ref, onMounted, computed, defineEmits } from 'vue'
 import { usePermissionRoleStore } from '@/store/permission/role'
 import { Search } from '@element-plus/icons-vue'
 const permissionRoleStore = usePermissionRoleStore()
@@ -43,19 +43,24 @@ const handleSelectionChange = (val: any) => {
 const deleteRole = (val: any) => {
   permissionRoleStore.deleteRole(val)
 }
+const delList = () => {
+  //批量删除
+  const arr = selected.value.map((item: any) => item.roleId)
+  permissionRoleStore.deleteRoles(arr)
+}
 //获取角色列表
 onMounted(() => {
   permissionRoleStore.getRoleList()
 })
 //搜索
-const filterRoleList=computed(()=>{
+const filterRoleList = computed(() => {
   return permissionRoleStore.roleList.filter((data: any) => !search.value || data.name.toLowerCase().includes(search.value.toLowerCase()))
 })
 //子调用父方法
 const emits = defineEmits(['openDrawer'])
 //添加和编辑 ---> 打开抽屉
-const edit = (val:any) => {
-  emits('openDrawer',val)
+const edit = (val: any) => {
+  emits('openDrawer', val)
 }
 </script>
 <style lang="scss" scoped>
@@ -84,5 +89,4 @@ p {
   display: flex;
   align-items: center;
 }
-
 </style>

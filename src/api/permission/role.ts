@@ -5,6 +5,7 @@ const api = {
   update: baseUrl + '/updateRole',
   add: baseUrl + '/addRole',
   delete: baseUrl + '/deleteRole',
+  deletes: baseUrl + '/deleteRoles',
 }
 //获取菜单列表
 export const reqGetRole = () =>
@@ -32,6 +33,13 @@ export const reqAddOrUpdateRole = (data: any) => {
 //删除角色
 export const reqDeleteRole = (id: number) =>
   requests({
-    url:api.delete+`/${id}`,
+    url: api.delete + `/${id}`,
     method: 'delete',
+  })
+//批量删除角色
+export const reqDeleteRoles = (ids: any) =>
+  requests({
+    url: api.deletes,
+    method: 'delete',
+    data: ids,
   })

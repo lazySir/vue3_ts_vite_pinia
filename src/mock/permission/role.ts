@@ -1,5 +1,5 @@
 import { roleData } from '@/mock/permission/data/roleData'
-const roleList = [...roleData]
+let roleList = [...roleData]
 export default {
   //模拟获取角色列表接口
   getRoleList(req: any, res: any) {
@@ -37,7 +37,16 @@ export default {
       code: 200,
       message: `删除成功`,
     }
-  }
+  },
+  //批量删除角色
+  deleteRoles(req: any, res: any) {
+    const ids = JSON.parse(req.body)
+    deleteRoles(ids)
+    return {
+      code: 200,
+      message: `批量删除成功`,
+    }
+  },
 }
 function update(val: any) {
   //根据val.roleId找到roleList中对应的角色 并将角色修改为val
@@ -51,8 +60,14 @@ function add(val: any) {
   roleList.push(val)
 }
 
-function del(val:any){
-  //根据val.roleId找到roleList中对应的角色 并将qi角色从roleList中删除 
+function del(val: any) {
+  //根据val.roleId找到roleList中对应的角色 并将qi角色从roleList中删除
   const index = roleList.findIndex((item: any) => item.roleId == val)
-  roleList.splice(index,1)
+  roleList.splice(index, 1)
+}
+function deleteRoles(arr: any) {
+  //根据arr里的数字找到roleList中对应的角色 并将qi角色从roleList中删除
+  arr.forEach((item: number) => {
+    roleList = roleList.filter((item1) => item1.roleId != item)
+  })
 }
