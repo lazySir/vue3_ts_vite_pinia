@@ -1,7 +1,9 @@
 <template>
-我是用户管理
+  <el-card>
+    <userList></userList>
+  </el-card>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
+import userList from '@/views/permission/user/components/userList.vue'
 </script>
-<style scoped>
-</style>
+<style scoped></style>

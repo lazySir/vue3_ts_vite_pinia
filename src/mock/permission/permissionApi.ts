@@ -15,3 +15,7 @@ export const permissionRoleApi = {
   delete: /\/api\/permission\/deleteRole\/\d+/,
   deletes: permissionBaseUrl + '/deleteRoles',
 }
+
+export const permissionUserApi={
+  get: permissionBaseUrl + '/getUser',
+}

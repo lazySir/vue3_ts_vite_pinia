@@ -22,3 +22,7 @@ Mock.mock(permissionRoleApi.update, 'put', permissionRole.updateRole)
 Mock.mock(permissionRoleApi.add, 'post', permissionRole.addRole)
 Mock.mock(permissionRoleApi.delete, 'delete', permissionRole.deleteRole)
 Mock.mock(permissionRoleApi.deletes, 'delete', permissionRole.deleteRoles)
+//权限管理---用户管理
+import { permissionUserApi } from './permission/permissionApi'
+import permissionUser from './permission/user'
+Mock.mock(permissionUserApi.get, 'get', permissionUser.getUserList)
