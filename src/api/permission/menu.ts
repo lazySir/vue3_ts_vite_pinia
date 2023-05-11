@@ -1,5 +1,5 @@
 import requests from '@/utils/request'
-const baseUrl = '/permission'
+import { baseUrl } from './baseUrl'
 const api={
   get:baseUrl+'/getMenu',
   add:baseUrl+'/addMenu',
