@@ -10,8 +10,8 @@ export let userInfo = reactive([
     //mock模拟头像
     avatar: Mock.mock('@image(200x200,@color)'),
     email: '969060742@qq.com',
-    createTIme: '2021-07-02 13:00:00',
-    updateTIme: '2023-5-10 12:00:00',
+    createTime: '2021-07-02 13:00:00',
+    updateTime: '2023-5-10 12:00:00',
   },
   {
     username: 'user',
@@ -22,8 +22,8 @@ export let userInfo = reactive([
     //mock模拟头像
     avatar: Mock.mock('@image(200x200,@color)'),
     email: 'xxxxx@qq.com',
-    createTIme: '2021-08-01 13:00:00',
-    updateTIme: '2023-5-10 12:00:00',
+    createTime: '2021-08-01 13:00:00',
+    updateTime: '2023-5-10 12:00:00',
   },
   {
     username: 'test',
@@ -34,7 +34,7 @@ export let userInfo = reactive([
     //mock模拟头像
     roleIdList: [3],
     email: 'xxxxx@qq.com',
-    createTIme: '2021-08-02 13:00:00',
-    updateTIme: '2023-5-10 12:00:00',
+    createTime: '2021-08-02 13:00:00',
+    updateTime: '2023-5-10 12:00:00',
   },
 ])

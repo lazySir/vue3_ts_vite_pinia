@@ -6,7 +6,7 @@
   <el-table :border="parentBorder" :data="permisssionUserStore.userList" style="width: 100%">
     <el-table-column header-align="center" align="center" label="头像" width="100px">
       <template #default="scope">
-        <el-image style="width: 50px; height: 50px" :src="scope.row.avatar" fit="cover"></el-image>
+        <el-image style="width: 50px; height: 50px;border-radius: 50%;" :src="scope.row.avatar" fit="cover"></el-image>
       </template>
     </el-table-column>
     <el-table-column header-align="center" align="center" prop="username" label="账号" width="100px"> </el-table-column>
@@ -24,25 +24,29 @@
         <el-tag :type="scope.row.code ? 'success' : 'danger'">{{ scope.row.code ? '正常' : '禁用' }}</el-tag>
       </template>
     </el-table-column>
-    <el-table-column header-align="center" align="center" prop="createTIme" label="创建时间"> </el-table-column>
-    <el-table-column header-align="center" align="center" prop="updateTIme" label="更新时间"> </el-table-column>
+    <el-table-column header-align="center" align="center" prop="createTime" label="创建时间"> </el-table-column>
+    <el-table-column header-align="center" align="center" prop="updateTime" label="更新时间"> </el-table-column>
     <el-table-column header-align="center" align="center" label="操作">
       <template #default="scope">
-        <el-button type="info" icon="UserFilled"></el-button>
-        <el-button type="primary" icon="edit"></el-button>
+        <el-button @click="edit(scope.row)" type="primary" icon="edit"></el-button>
         <el-button type="danger" icon="delete"></el-button>
       </template>
     </el-table-column>
   </el-table>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, defineEmits } from 'vue'
 const parentBorder = ref(true)
 import { usePermissionUserStore } from '@/store/permission/user'
 const permisssionUserStore = usePermissionUserStore()
 onMounted(() => {
   permisssionUserStore.getUserList()
 })
+const emits = defineEmits(['openDrawer'])
+//编辑按钮
+const edit = (val: any) => {
+  emits('openDrawer', val)
+}
 </script>
 <style lang="scss" scoped>
 .el-input {
