@@ -1,8 +1,8 @@
 <template>
-  <span class='username'> {{userStore.username}} </span>
+  <span class='username'> {{userStore.userInfo.username}} </span>
 </template>
 <script lang="ts" setup>
-import { useUserStore } from '@/store/user.ts'
+import { useUserStore } from '@/store/user'
 const userStore = useUserStore()
 </script>
 <style scoped>

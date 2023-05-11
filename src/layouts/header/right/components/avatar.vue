@@ -1,7 +1,7 @@
 <template>
   <el-dropdown>
     <div @mouseenter="changeActive" @mouseleave="changeActive">
-      <img class="user" :src="userStore.avatar" alt="" />
+      <img class="user" :src="userStore.userInfo.avatar" alt="" />
       <el-icon v-if="isActive">
         <arrow-down />
       </el-icon>
