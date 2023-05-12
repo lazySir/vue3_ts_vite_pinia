@@ -35,13 +35,19 @@
         </el-checkbox-group>
       </el-form-item>
     </el-form>
+    <div class="drawer__footer">
+      <el-button type="danger" @click="handleClose">取消</el-button>
+      <el-button type="primary" @click="confirm">确认</el-button>
+    </div>
   </el-drawer>
 </template>
 
 <script lang="ts" setup>
 import { ref, defineExpose, watch, onMounted, computed } from 'vue'
 import { usePermissionRoleStore } from '@/store/permission/role'
+import { usePermissionUserStore } from '@/store/permission/user'
 const peremissionRoleStore = usePermissionRoleStore()
+const permissionUserStore = usePermissionUserStore()
 //加载时发送请求获取角色列表
 onMounted(() => {
   peremissionRoleStore.getRoleList()
@@ -57,6 +63,7 @@ const user = ref({
   createTime: '',
   roleList: [],
   updateTime: '',
+  roleIdList: [],
 })
 //全部角色姓名
 const allRoles: any = computed(() => {
@@ -75,6 +82,35 @@ const isIndeterminate = ref(true)
 const handleCheckAllChange = (val: boolean) => {
   isIndeterminate.value = false
   selectedRole.value = val ? allRoles.value : []
+}
+//取消
+const handleClose = () => {
+  drawer.value = false
+  //重置user
+  user.value = {
+    username: '',
+    name: '',
+    email: '',
+    code: '',
+    createTime: '',
+    roleList: [],
+    updateTime: '',
+  }
+}
+//确定
+const confirm = () => {
+  //将user.roleIdList清空根据selectedRole.value里的name值寻找peremissionRoleStore.roleList对应的对象roleId并将roleId赋值给user.roleIdList
+  user.value.roleIdList = []
+  selectedRole.value.forEach((item) => {
+    user.value.roleIdList.push(peremissionRoleStore.roleList.find((role) => role.name == item).roleId)
+  })
+  const newUser = { name: '', roleIdList: [], username: '', code: '' }
+  newUser.name = user.value.name
+  newUser.roleIdList = user.value.roleIdList
+  newUser.username = user.value.username
+  newUser.code = user.value.code
+  permissionUserStore.updateUser(newUser)
+  drawer.value = false
 }
 //反选
 const handleCheckReverse = () => {
@@ -104,5 +140,8 @@ defineExpose({ openDrawer })
   width: 100px;
   height: 100px;
   border-radius: 50%;
+}
+.drawer__footer {
+  text-align: center;
 }
 </style>

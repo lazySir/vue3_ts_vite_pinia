@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ElMessage } from 'element-plus'
-import { reqGetUserList } from '@/api/permission/user'
+import { reqGetUserList, reqUpdateUser } from '@/api/permission/user'
 import { usePermissionRoleStore } from '@/store/permission/role'
 const permissionRoleStore = usePermissionRoleStore()
 export const usePermissionUserStore = defineStore('permissionUser', {
@@ -32,6 +32,15 @@ export const usePermissionUserStore = defineStore('permissionUser', {
             })
           })
         })
+      }
+    },
+    //更新用户
+    async updateUser(user: any) {
+      const res: any = await reqUpdateUser(user)
+      if (res.code == 200) {
+        ElMessage.success('更新用户成功')
+        // 这里不需要 await
+        this.getUserList()
       }
     },
   },
