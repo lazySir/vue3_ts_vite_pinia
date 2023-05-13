@@ -1,12 +1,10 @@
 <template>
-  <el-input placeholder="输入账号查询"></el-input>
-  <el-button class="search" type="primary" icon="search">搜索</el-button>
+  <el-input v-model="search" placeholder="输入账号查询"></el-input>
   <span class="parentBorder"> 边框: <el-switch v-model="parentBorder" /> </span>
-  <el-button>清空</el-button>
-  <el-table :border="parentBorder" :data="permisssionUserStore.userList" style="width: 100%">
+  <el-table :border="parentBorder" :data="filterUserList" style="width: 100%">
     <el-table-column header-align="center" align="center" label="头像" width="100px">
       <template #default="scope">
-        <el-image style="width: 50px; height: 50px;border-radius: 50%;" :src="scope.row.avatar" fit="cover"></el-image>
+        <el-image style="width: 50px; height: 50px; border-radius: 50%" :src="scope.row.avatar" fit="cover"></el-image>
       </template>
     </el-table-column>
     <el-table-column header-align="center" align="center" prop="username" label="账号" width="100px"> </el-table-column>
@@ -29,16 +27,24 @@
     <el-table-column header-align="center" align="center" label="操作">
       <template #default="scope">
         <el-button @click="edit(scope.row)" type="primary" icon="edit"></el-button>
-        <el-button type="danger" icon="delete"></el-button>
+        <el-popconfirm cancel-button-text="取消" confirm-button-text="确认" @confirm="deleteUser(scope.row.username)" :title="`确定删除${scope.row.username}?`">
+          <template #reference>
+            <el-button type="danger" icon="delete"></el-button>
+          </template>
+        </el-popconfirm>
       </template>
     </el-table-column>
   </el-table>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted, defineEmits } from 'vue'
-const parentBorder = ref(true)
+import { ref, onMounted, defineEmits,computed} from 'vue'
 import { usePermissionUserStore } from '@/store/permission/user'
 const permisssionUserStore = usePermissionUserStore()
+const parentBorder = ref(true)
+const search =ref('')
+const filterUserList = computed(()=>{
+  return permisssionUserStore.userList.filter((item:any)=>item.username.includes(search.value))
+})
 onMounted(() => {
   permisssionUserStore.getUserList()
 })
@@ -46,6 +52,10 @@ const emits = defineEmits(['openDrawer'])
 //编辑按钮
 const edit = (val: any) => {
   emits('openDrawer', val)
+}
+//删除按钮
+const deleteUser = (val: any) => {
+  permisssionUserStore.deleteUser(val)
 }
 </script>
 <style lang="scss" scoped>

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ElMessage } from 'element-plus'
-import { reqGetUserList, reqUpdateUser } from '@/api/permission/user'
+import { reqGetUserList, reqUpdateUser,reqDeleteUser} from '@/api/permission/user'
 import { usePermissionRoleStore } from '@/store/permission/role'
 const permissionRoleStore = usePermissionRoleStore()
 export const usePermissionUserStore = defineStore('permissionUser', {
@@ -43,5 +43,15 @@ export const usePermissionUserStore = defineStore('permissionUser', {
         this.getUserList()
       }
     },
+    //删除用户
+    async deleteUser(username:any){
+      const res:any = await reqDeleteUser(username)
+      if(res.code == 200){
+        ElMessage.success(res.message)
+        this.getUserList()
+      }else{
+        ElMessage.error(res.message)
+      }
+    }
   },
 })

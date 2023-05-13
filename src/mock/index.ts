@@ -27,3 +27,4 @@ import { permissionUserApi } from './permission/permissionApi'
 import permissionUser from './permission/user'
 Mock.mock(permissionUserApi.get, 'get', permissionUser.getUserList)
 Mock.mock(permissionUserApi.update,'put',permissionUser.updateUser)
+Mock.mock(permissionUserApi.delete,'delete',permissionUser.deleteUser)

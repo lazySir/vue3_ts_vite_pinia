@@ -18,5 +18,6 @@ export const permissionRoleApi = {
 //用户管理api
 export const permissionUserApi={
   get: permissionBaseUrl + '/getUser',
-  update:permissionBaseUrl +'/updateUser'
+  update:permissionBaseUrl +'/updateUser',
+  delete: /\/api\/permission\/deleteUser\/\w+/,
 }
