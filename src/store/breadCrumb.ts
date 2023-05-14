@@ -1,5 +1,5 @@
-import { routes } from '@/router'
 import { defineStore } from 'pinia'
+import { useUserStore } from './user'
 export const useBreadCrumbStore = defineStore('breadCrumb', {
   state: () => {
     return {
@@ -15,12 +15,18 @@ export const useBreadCrumbStore = defineStore('breadCrumb', {
       ],
     }
   },
-  getters: {},
+  getters: {
+    routes() {
+      // 实时引用 userStore.routes
+      const userStore = useUserStore()
+      return userStore.resultRoutes
+    },
+  },
   actions: {
     addBreadCrumb(routeName: any) {
       this.$reset()
       if (routeName != 'Dashboard') {
-        let newRoutes = [...routes]
+        let newRoutes = [...this.routes]
         //去除没有children的项目
         newRoutes = newRoutes.filter((item: any) => {
           return item.children

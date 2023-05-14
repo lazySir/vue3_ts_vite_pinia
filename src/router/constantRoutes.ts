@@ -2,15 +2,6 @@ const Layout = () => import('@/layouts/index.vue')
 
 export const constantRoutes: any = [
   {
-    path: '/',
-    name: 'Home',
-    icon: 'i-material-symbols:home',
-    title: '首页',
-    component: Layout,
-    redirect: '/dashboard', //重定向
-    children: [{ path: 'dashboard', name: 'Dashboard', component: () => import('@/views/home/index.vue') }],
-  },
-  {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/login/index.vue'),

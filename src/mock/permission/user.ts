@@ -1,5 +1,5 @@
 import { userInfo } from '@/mock/user/data'
-const userList = userInfo
+export const userList = userInfo
 export default {
   //获取用户列表
   getUserList: () => {
