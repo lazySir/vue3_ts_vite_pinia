@@ -2,22 +2,23 @@ import { createApp } from 'vue'
 // import './style.css'
 import App from '@/App.vue'
 import { setupPinia } from '@/utils/pinia'
-import { setupElementPlus } from '@//utils/element-plus'
+import { setupElementPlus } from '@/utils/element-plus'
 import router from '@/router'
 
 const app = createApp(App)
-//引入router
-app.use(router)
+
 //引入pinia
 setupPinia(app)
+//引入router
+app.use(router)
+//引入路由守卫
+import './permission'
 //全局引入element-ui图标组件库
-setupElementPlus(app) 
+setupElementPlus(app)
 // 引入进度条样式
 import 'nprogress/nprogress.css'
 // element dark(内置暗黑模式)
 import 'element-plus/theme-chalk/dark/css-vars.css'
-//引入路由守卫
-import './permission'
 
 // unocss
 import 'virtual:uno.css'
