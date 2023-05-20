@@ -47,6 +47,7 @@ declare module '@vue/runtime-core' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTag: typeof import('element-plus/es')['ElTag']
+    ElText: typeof import('element-plus/es')['ElText']
     ElTree: typeof import('element-plus/es')['ElTree']
     ICilLanguage: typeof import('~icons/cil/language')['default']
     IIcBaselineZoomInMap: typeof import('~icons/ic/baseline-zoom-in-map')['default']

@@ -91,4 +91,50 @@ export let asyncRoutes: any = [
       },
     ],
   },
+  {
+    path:'/jsDemo',
+    name:'JsDemo',
+    component:Layout,
+    title:'JS案例',
+    icon:'i-material-symbols:background-grid-small',
+    redirect:'/jsDemo/mathRandom',
+    sort:5,
+    children:[
+      {
+        path:'mathRandom',
+        name:'MathRandom',
+        component:()=>import('@/views/JSdemo/index.vue'),
+        title:'random函数',
+        icon:'i-material-symbols:grid-view',
+        sort:1
+      },
+    ]
+  },
+  {
+    path:'/cssDemo',
+    name:'CssDemo',
+    component:Layout,
+    title:'CSS案例',
+    icon:'i-material-symbols:background-grid-small',
+    redirect:'/cssDemo/flashLight',
+    sort:6,
+    children:[
+      {
+        path:'flashLight',
+        name:'FlashLight',
+        component:()=>import('@/views/cssDemo/flashLight.vue'),
+        title:'手电筒效果',
+        icon:'i-material-symbols:grid-view',
+        sort:1
+      },
+      {
+        path:'textPenetration'
+        ,name:'TextPenetration',
+        component:()=>import('@/views/cssDemo/textPenetration.vue'),
+        title:'文字穿透',
+        icon:'i-material-symbols:grid-view',
+        sort:2
+      }
+    ]
+  }
 ]
