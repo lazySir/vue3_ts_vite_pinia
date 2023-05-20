@@ -5,8 +5,8 @@ import { asyncRoutes } from '@/router/asyncRoutes'
 import { usePermissionRoleStore } from '@/store/permission/role'
 import { constantRoutes } from '@/router/constantRoutes'
 import { usePermissionMenuStore } from '@/store/permission/menu'
-const permissionRoleStore = usePermissionRoleStore()
-const permissionMenuStore = usePermissionMenuStore()
+
+
 import _ from 'lodash'
 //1.定义容器
 //参数1：容器的ID，必须唯一（可以自己取名），将来Pinia会把所有的容器挂在到跟容器
@@ -89,6 +89,7 @@ export const useUserStore = defineStore('user', {
     async loadRoutes() {
       //获取菜单id
       const menuIdList = await getMenuIdList(this.userInfo.roleIdList)
+      const permissionMenuStore = usePermissionMenuStore()
       //发送请求获取排序后的路由
       await permissionMenuStore.getMenuList()
       const computedRoutes = permissionMenuStore.menuList
@@ -109,6 +110,7 @@ export const useUserStore = defineStore('user', {
 
 //获取菜单id
 async function getMenuIdList(val: any) {
+  const permissionRoleStore = usePermissionRoleStore()
   //发送获取角色请求
   await permissionRoleStore.getRoleList()
   let menuIdList: any = []
