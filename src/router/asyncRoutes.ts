@@ -108,6 +108,14 @@ export let asyncRoutes: any = [
         icon:'i-material-symbols:grid-view',
         sort:1
       },
+      {
+        path:'lazyFunction',
+        name:'LazyFunction',
+        component:()=>import('@/views/JSdemo/lazyFunction.vue'),
+        title:'惰性函数',
+        icon:'i-material-symbols:grid-view',
+        sort:2
+      }
     ]
   },
   {
@@ -134,7 +142,7 @@ export let asyncRoutes: any = [
         title:'文字穿透',
         icon:'i-material-symbols:grid-view',
         sort:2
-      }
+      },
     ]
   }
 ]
