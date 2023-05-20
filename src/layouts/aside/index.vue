@@ -1,6 +1,6 @@
 <template>
   <div class="aside-container">
-    <!-- @open="handleOpen" @close="handleClose" -->
+    <el-scrollbar>
     <el-menu :collapse="asideStore.isCollapse" 
     active-text-color="#009688" 
     background-color="#ffffff" 
@@ -12,6 +12,7 @@
       <!-- 菜单 -->
       <subMenu />
     </el-menu>
+  </el-scrollbar>
   </div>
 </template>
 <script lang="ts" setup>
