@@ -46,6 +46,12 @@ html.dark {
           }
         }
         .r-container {
+          .drawer_item{
+            color: #fff !important;
+          }
+          h1,p{
+            color: #E5EAF3 !important;
+          }
           .el-icon {
             &:not(.is-active) {
               color: #bdbdc0 !important;

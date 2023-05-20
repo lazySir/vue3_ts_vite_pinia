@@ -10,5 +10,6 @@ export default [
   'i-line-md:edit',
   'i-material-symbols:delete-outline',
   'i-ic:round-alarm',
-  'i-material-symbols:background-grid-small'
+  'i-material-symbols:background-grid-small',
+  'i-mingcute-t-shirt-line',
 ]
