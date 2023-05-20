@@ -22,10 +22,11 @@
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
-import { loginUser, loginRules } from '@/utils/loginValidators.ts'
-import { useRouter } from 'vue-router'
+import { loginUser, loginRules } from '@/utils/loginValidators'
 import { Plus, UserFilled } from '@element-plus/icons-vue'
-import { useUserStore } from '@/store/user.ts'
+import { useUserStore } from '@/store/user'
+import { ElNotification } from 'element-plus'
+import { getTimeState } from '@/utils'
 const emit = defineEmits(['changeLogin'])
 //pinia store
 const userStore = useUserStore()
@@ -39,6 +40,12 @@ function handlerLogin() {
       let result = await userStore.login(loginUser.username, loginUser.password)
       if (result) {
         resetForm()
+        ElNotification({
+          title: getTimeState(),
+          message: '欢迎登录 LazySir-Admin',
+          type: 'success',
+          duration: 3000,
+        })
         loading.value = false
       }
       return true
