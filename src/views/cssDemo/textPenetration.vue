@@ -11,7 +11,7 @@
 .content
 {
   background: url('../../assets/images/textPenetration.jpg') no-repeat center/cover;
-  height: 800px;
+  height: 750px;
   font-family:'Open sans' ,sans-serif;
 }
 .modal{
