@@ -93,8 +93,7 @@ window.onresize = () => {
         }
         .line{
           flex:1;
-          background: green;
-          margin-bottom:16px;
+          /* margin-bottom:10px; */
         }
       }
     }
