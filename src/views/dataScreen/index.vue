@@ -14,7 +14,11 @@
           <Map class="map"></Map>
           <Line class="line"></Line>
         </div>
-        <div class="right">右侧</div>
+        <div class="right">
+          <Rank class="rank"></Rank>
+          <Year class="year"></Year>
+          <Counter class="counter"></Counter>
+        </div>
       </div>
     </div>
   </div>
@@ -27,6 +31,9 @@ import Age from '@/views/dataScreen/components/age/index.vue'
 import Tourist from '@/views/dataScreen/components/tourist/index.vue'
 import Map from '@/views/dataScreen/components/map/index.vue'
 import Line from '@/views/dataScreen/components/line/index.vue'
+import Counter from '@/views/dataScreen/components/counter/index.vue'
+import Rank from '@/views/dataScreen/components/rank/index.vue'
+import Year from '@/views/dataScreen/components/year/index.vue'
 //获取数据大屏展示内容盒子的DOM元素
 let screen = ref()
 onMounted(() => {
@@ -66,6 +73,20 @@ window.onresize = () => {
       display: flex;
       .right {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        .rank{
+          flex:1;
+        }
+        .year{
+          flex:1;
+        }
+        .counter{
+          flex:1;
+        }
+
+        /* background: red; */
       }
       .left {
         flex: 1;
