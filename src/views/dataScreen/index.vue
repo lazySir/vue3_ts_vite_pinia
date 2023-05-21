@@ -5,7 +5,11 @@
       <!-- 数据大屏顶部 -->
       <div class="top"><Top /></div>
       <div class="bottom">
-        <div class="left">左侧</div>
+        <div class="left">
+          <Tourist class="tourist"></Tourist>
+          <Sex class="sex"> </Sex>
+          <Age class="age"></Age>
+        </div>
         <div class="center">中间</div>
         <div class="right">右侧</div>
       </div>
@@ -15,6 +19,9 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import Top from '@/views/dataScreen/components/top/index.vue'
+import Sex from '@/views/dataScreen/components/sex/index.vue'
+import Age from '@/views/dataScreen/components/age/index.vue'
+import Tourist from '@/views/dataScreen/components/tourist/index.vue'
 //获取数据大屏展示内容盒子的DOM元素
 let screen = ref()
 onMounted(() => {
@@ -57,6 +64,19 @@ window.onresize = () => {
       }
       .left {
         flex: 1;
+        height: 1040px;
+        /* background: red; */
+        display: flex;
+        flex-direction: column;
+        .tourist {
+          flex: 1.1;
+        }
+        .sex {
+          flex: 1;
+        }
+        .age {
+          flex: 1;
+        }
       }
       .center {
         flex: 2;
