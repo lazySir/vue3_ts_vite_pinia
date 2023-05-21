@@ -92,57 +92,65 @@ export let asyncRoutes: any = [
     ],
   },
   {
-    path:'/jsDemo',
-    name:'JsDemo',
-    component:Layout,
-    title:'JS案例',
-    icon:'i-material-symbols:background-grid-small',
-    redirect:'/jsDemo/mathRandom',
-    sort:5,
-    children:[
+    path: '/jsDemo',
+    name: 'JsDemo',
+    component: Layout,
+    title: 'JS案例',
+    icon: 'i-material-symbols:background-grid-small',
+    redirect: '/jsDemo/mathRandom',
+    sort: 5,
+    children: [
       {
-        path:'mathRandom',
-        name:'MathRandom',
-        component:()=>import('@/views/JSdemo/index.vue'),
-        title:'random函数',
-        icon:'i-material-symbols:grid-view',
-        sort:1
+        path: 'mathRandom',
+        name: 'MathRandom',
+        component: () => import('@/views/JSdemo/index.vue'),
+        title: 'random函数',
+        icon: 'i-material-symbols:grid-view',
+        sort: 1,
       },
       {
-        path:'lazyFunction',
-        name:'LazyFunction',
-        component:()=>import('@/views/JSdemo/lazyFunction.vue'),
-        title:'惰性函数',
-        icon:'i-material-symbols:grid-view',
-        sort:2
-      }
-    ]
+        path: 'lazyFunction',
+        name: 'LazyFunction',
+        component: () => import('@/views/JSdemo/lazyFunction.vue'),
+        title: '惰性函数',
+        icon: 'i-material-symbols:grid-view',
+        sort: 2,
+      },
+    ],
   },
   {
-    path:'/cssDemo',
-    name:'CssDemo',
-    component:Layout,
-    title:'CSS案例',
-    icon:'i-material-symbols:background-grid-small',
-    redirect:'/cssDemo/flashLight',
-    sort:6,
-    children:[
+    path: '/cssDemo',
+    name: 'CssDemo',
+    component: Layout,
+    title: 'CSS案例',
+    icon: 'i-material-symbols:background-grid-small',
+    redirect: '/cssDemo/flashLight',
+    sort: 6,
+    children: [
       {
-        path:'flashLight',
-        name:'FlashLight',
-        component:()=>import('@/views/cssDemo/flashLight.vue'),
-        title:'手电筒效果',
-        icon:'i-material-symbols:grid-view',
-        sort:1
+        path: 'flashLight',
+        name: 'FlashLight',
+        component: () => import('@/views/cssDemo/flashLight.vue'),
+        title: '手电筒效果',
+        icon: 'i-material-symbols:grid-view',
+        sort: 1,
       },
       {
-        path:'textPenetration'
-        ,name:'TextPenetration',
-        component:()=>import('@/views/cssDemo/textPenetration.vue'),
-        title:'文字穿透',
-        icon:'i-material-symbols:grid-view',
-        sort:2
+        path: 'textPenetration',
+        name: 'TextPenetration',
+        component: () => import('@/views/cssDemo/textPenetration.vue'),
+        title: '文字穿透',
+        icon: 'i-material-symbols:grid-view',
+        sort: 2,
       },
-    ]
-  }
+      {
+        path: 'chatText',
+        name: 'ChatText',
+        component: () => import('@/views/cssDemo/chatText.vue'),
+        title: 'chatGPT的输入框',
+        icon: 'i-material-symbols:grid-view',
+        sort: 3,
+      },
+    ],
+  },
 ]
