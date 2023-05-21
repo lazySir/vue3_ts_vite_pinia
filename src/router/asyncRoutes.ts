@@ -27,6 +27,7 @@ export let asyncRoutes: any = [
       { sort: 3, path: 'menu', name: 'Menu', title: '菜单管理', icon: 'i-material-symbols:grid-view', component: () => import('@/views/permission/menu/index.vue') },
     ],
   },
+  //echarts
   {
     path: '/ecahrts',
     name: 'Ecahrts',
@@ -46,6 +47,7 @@ export let asyncRoutes: any = [
       },
     ],
   },
+  //超级表格
   {
     path: '/superTable',
     name: 'SuperTable',
@@ -65,6 +67,7 @@ export let asyncRoutes: any = [
       },
     ],
   },
+  //其他
   {
     path: '/other',
     name: 'Other',
@@ -91,6 +94,7 @@ export let asyncRoutes: any = [
       },
     ],
   },
+  //jsDemo
   {
     path: '/jsDemo',
     name: 'JsDemo',
@@ -118,6 +122,7 @@ export let asyncRoutes: any = [
       },
     ],
   },
+  //cssDemo
   {
     path: '/cssDemo',
     name: 'CssDemo',
@@ -152,5 +157,15 @@ export let asyncRoutes: any = [
         sort: 3,
       },
     ],
+  },
+  //数据大屏
+  {
+    path: '/dataScreen',
+    name: 'DataScreen',
+    component: () => import('@/views/dataScreen/index.vue'),
+    title: '数据大屏',
+    icon: 'i-material-symbols:background-grid-small',
+    sort: 7,
+    children: [],
   },
 ]
