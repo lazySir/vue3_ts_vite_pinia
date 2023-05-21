@@ -10,7 +10,10 @@
           <Sex class="sex"> </Sex>
           <Age class="age"></Age>
         </div>
-        <div class="center">中间</div>
+        <div class="center">
+          <Map class="map"></Map>
+          <Line class="line"></Line>
+        </div>
         <div class="right">右侧</div>
       </div>
     </div>
@@ -22,6 +25,8 @@ import Top from '@/views/dataScreen/components/top/index.vue'
 import Sex from '@/views/dataScreen/components/sex/index.vue'
 import Age from '@/views/dataScreen/components/age/index.vue'
 import Tourist from '@/views/dataScreen/components/tourist/index.vue'
+import Map from '@/views/dataScreen/components/map/index.vue'
+import Line from '@/views/dataScreen/components/line/index.vue'
 //获取数据大屏展示内容盒子的DOM元素
 let screen = ref()
 onMounted(() => {
@@ -80,6 +85,17 @@ window.onresize = () => {
       }
       .center {
         flex: 2;
+        display: flex;
+        flex-direction: column;
+        .map{
+          flex:4;
+          /* background: red; */
+        }
+        .line{
+          flex:1;
+          background: green;
+          margin-bottom:16px;
+        }
       }
     }
   }
