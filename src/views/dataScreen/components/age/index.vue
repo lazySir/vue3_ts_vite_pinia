@@ -159,7 +159,6 @@ let ageData = [
   height: 100%;
   background: url('@/views/dataScreen/images/dataScreen-main-cb.png') no-repeat;
   background-size: 100% 100%;
-  margin-bottom: 20px;
   .title {
     margin-left: 20px;
     p {
