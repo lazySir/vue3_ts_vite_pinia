@@ -1,8 +1,11 @@
 import router from '@/router'
 import { useUserStore } from '@/store/user'
 import { constantRoutes } from '@/router/constantRoutes'
+import { startLoading, endLoding } from '@/utils/loading'
 //全局前置导航守卫
 router.beforeEach(async (to, from, next) => {
+  //加载动画
+  startLoading()
   const hasToken = sessionStorage.getItem('user')
   // token不存在
   if (!hasToken && to.name != 'Login') {
@@ -22,4 +25,9 @@ router.beforeEach(async (to, from, next) => {
     }
     next()
   }
+})
+//全职后置导航守卫
+router.afterEach((to, from) => {
+  //关闭加载
+  endLoding()
 })
