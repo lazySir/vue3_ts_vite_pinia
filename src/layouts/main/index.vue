@@ -1,7 +1,20 @@
 <template>
-  <el-scrollbar>
-    <router-view />
-  </el-scrollbar>
+  <div class="home-card">
+    <el-scrollbar>
+      <router-view />
+    </el-scrollbar>
+  </div>
 </template>
 <script lang="ts" setup></script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.home-card {
+  box-sizing: border-box;
+  padding: 20px;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  border: 1px solid #e4e7ed;
+  border-radius: 6px;
+  box-shadow: 0 0 12px #0000000d;
+}
+</style>

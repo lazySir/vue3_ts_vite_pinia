@@ -98,6 +98,10 @@ html.dark {
     }
     .el-main {
       background-color: var(--lazySir-bg-color);
+      .home-card{
+        background-color: var(--lazySir-bg-color);
+        border: 1px solid var(--lazySir-border-color);
+      }
     }
     .el-footer {
       border-top: 1px solid var(--lazySir-border-color) !important;
