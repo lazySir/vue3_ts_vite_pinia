@@ -1,10 +1,8 @@
 <template>
-  <el-card>
-    <!-- 用户列表  -->
-    <userList @openDrawer="FatherClick"></userList>
-    <!-- 抽屉 -->
-    <drawer ref="drawerRef"></drawer>
-  </el-card>
+  <!-- 用户列表  -->
+  <userList @openDrawer="FatherClick"></userList>
+  <!-- 抽屉 -->
+  <drawer ref="drawerRef"></drawer>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'

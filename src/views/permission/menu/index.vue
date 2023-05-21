@@ -1,12 +1,10 @@
 <template>
-  <el-card>
-    <!-- 添加一级菜单按钮 -->
-    <el-button @click="FatherClick" icon="plus" type="primary">添加</el-button>
-    <!-- 菜单列表显示 -->
-    <menuList @showDialog="FatherClick"></menuList>
-    <!-- 弹窗 -->
-    <dialogForm ref="dialogRef"></dialogForm>
-  </el-card>
+  <!-- 添加一级菜单按钮 -->
+  <el-button @click="FatherClick" icon="plus" type="primary">添加</el-button>
+  <!-- 菜单列表显示 -->
+  <menuList @showDialog="FatherClick"></menuList>
+  <!-- 弹窗 -->
+  <dialogForm ref="dialogRef"></dialogForm>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'

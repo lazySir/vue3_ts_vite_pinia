@@ -1,17 +1,15 @@
 <template>
-  <el-card>
-    <!-- 下拉菜单 -->
-    <div class="Drawer_direction">
-      <label>抽屉方向:</label>
-      <el-select @change="changDirection" v-model="direction" class="m-2" placeholder="Select">
-        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-      </el-select>
-    </div>
+  <!-- 下拉菜单 -->
+  <div class="Drawer_direction">
+    <label>抽屉方向:</label>
+    <el-select @change="changDirection" v-model="direction" class="m-2" placeholder="Select">
+      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+    </el-select>
+  </div>
 
-    <roleList @openDrawer="FatherClick"></roleList>
-    <!-- 抽屉 -->
-    <drawer ref="drawerRef"></drawer>
-  </el-card>
+  <roleList @openDrawer="FatherClick"></roleList>
+  <!-- 抽屉 -->
+  <drawer ref="drawerRef"></drawer>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
@@ -30,7 +28,7 @@ const options = [
   { value: 'btt', label: '下向上' },
 ]
 //修改抽屉方向
-const changDirection =(val:string) =>{
+const changDirection = (val: string) => {
   drawerRef.value.directionDrawer(val)
 }
 //抽屉方向
@@ -41,13 +39,13 @@ const direction = ref('rtl')
   float: right;
 }
 .Drawer_direction {
-  label{
+  label {
     margin-right: 5px;
   }
   margin-left: 10px;
   float: right;
-  .el-select{
-    width:130px
+  .el-select {
+    width: 130px;
   }
 }
 </style>
