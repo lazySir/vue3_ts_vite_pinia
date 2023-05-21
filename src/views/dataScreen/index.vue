@@ -75,7 +75,7 @@ window.onresize = () => {
         flex: 1;
         display: flex;
         flex-direction: column;
-        margin-left: 20px;
+        margin-left: 35px;
         .rank{
           flex:1;
         }
