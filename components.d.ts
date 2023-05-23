@@ -9,6 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    DarkSwitch: typeof import('./src/components/darkSwitch.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBadge: typeof import('element-plus/es')['ElBadge']
@@ -63,6 +64,7 @@ declare module '@vue/runtime-core' {
     IMdiBellOutline: typeof import('~icons/mdi/bell-outline')['default']
     IMingcuteTShirtLine: typeof import('~icons/mingcute/t-shirt-line')['default']
     IUisRightIndent: typeof import('~icons/uis/right-indent')['default']
+    OsSwitch: typeof import('./src/components/osSwitch.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Switch: typeof import('./src/components/switch.vue')['default']

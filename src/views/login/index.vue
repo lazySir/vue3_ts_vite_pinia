@@ -22,7 +22,7 @@
 import {reactive} from 'vue'
 import LoginForm from "./components/LoginForm.vue";
 import RegisterFrom from "./components/RegisterForm.vue";
-import SwitchDark from '@/components/switch.vue'
+import SwitchDark from '@/components/darkSwitch.vue'
 //控制登录或者注册页面
 const controlPage = reactive<object>({
   //标记登录注册页面

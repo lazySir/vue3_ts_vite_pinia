@@ -10,15 +10,20 @@
         <el-color-picker @change="setColor()" v-model="color" :predefine="predefineColors" show-alpha> </el-color-picker>
       </div>
       <div class="drawer_item">
+        <span>跟随系统</span>
+        <osTheme></osTheme>
+      </div>
+      <div class="drawer_item">
         <span>暗黑模式</span>
-        <theme></theme>
+        <darkTheme></darkTheme>
       </div>
     </template>
   </el-drawer>
 </template>
 <script lang="ts" setup>
 import { ref, defineExpose } from 'vue'
-import theme from '@/components/switch.vue'
+import darkTheme from '@/components/darkSwitch.vue'
+import osTheme from '@/components/osSwitch.vue'
 const drawer = ref(false)
 const color = ref('#409EFF')
 const predefineColors = ref(['#ff4500', '#ff8c00', '#ffd700', '#90ee90', '#00ced1', '#1e90ff', '#c71585', 'rgb(255, 120, 0)', 'hsv(51, 100, 98)', 'hsl(181, 100%, 37%)'])
