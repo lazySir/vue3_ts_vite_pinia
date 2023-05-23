@@ -11,15 +11,16 @@
 import { ElMessage } from 'element-plus'
 //防抖函数
 const debounce = (callback: Function, delay: number) => {
-  let timer: any
-  return function () {
-    clearTimeout(timer) //清除之前的计时
-    var args = arguments //利用闭包保存参数数组
-    timer = setTimeout(function () {
-      callback.apply(this, args)
-    }, delay)
-  }
-}
+  let timer: any;
+  return function(this: any) {
+    clearTimeout(timer);
+    const args = arguments;
+    timer = setTimeout(() => {
+      callback.apply(this, args);
+    }, delay);
+  };
+};
+
 
 const open = () => {
   ElMessage({

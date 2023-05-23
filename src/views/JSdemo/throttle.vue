@@ -12,26 +12,25 @@
 import { ElMessage } from 'element-plus'
 //节流的最终形态：可选择是否立即触发
 function throttle(fn: Function, delay: number, immediate = true) {
-  //如果没有传immediate则默认true
+  let context: any
   if (immediate) {
     let t: any = null
-    return function (...args: any) {
+    return function (this: any, ...args: any) {
+      context = this // 保存正确的 this 上下文
       if (!t || Date.now() - t > delay) {
-        //如果当前时间戳不存在或者当前时间戳减去上一次时间戳大于delay
-        fn.apply(this, args) //执行函数
-        t = Date.now() //得到当前的时间戳
+        fn.apply(context, args) // 使用保存的 context
+        t = Date.now()
       }
     }
   } else {
-    //设置一个定时器id
     let timer: any = null
-    return function (...args: any) {
-      //如果timer值不是setTimeout返回的则直接返回不做处理
+    return function (this: any, ...args: any) {
+      context = this // 保存正确的 this 上下文
       if (timer) {
         return
       }
       timer = setTimeout(function () {
-        fn.apply(null, args)
+        fn.apply(context, args) // 使用保存的 context
         timer = null
       }, delay)
     }
