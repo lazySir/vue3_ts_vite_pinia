@@ -164,7 +164,7 @@ export let asyncRoutes: any = [
     name: 'DataScreen',
     component: () => import('@/views/dataScreen/index.vue'),
     title: '数据大屏',
-    icon: 'i-material-symbols:background-grid-small',
+    icon: 'i-ic:baseline-monitor',
     sort: 7,
     children: [],
   },

@@ -13,4 +13,5 @@ export default [
   'i-material-symbols:background-grid-small',
   'i-mingcute-t-shirt-line',
   'i-mdi-bell-outline',
+  'i-ic:baseline-monitor',
 ]
