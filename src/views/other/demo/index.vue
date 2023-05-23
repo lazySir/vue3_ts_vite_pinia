@@ -1,7 +1,5 @@
 <template>
-<div>
-  我是other2组件123456
-</div>
+  <div>我是其他页面</div>
 </template>
 <script lang='ts' setup>
 </script>
