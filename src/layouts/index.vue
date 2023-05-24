@@ -8,12 +8,12 @@
       <el-container>
         <!-- 头部 -->
         <el-header><Header /> </el-header>
-        <tagBox></tagBox>
+        <tagBox v-if="globalStore.isShowTab"></tagBox>
         <!-- 主体展示 -->
         <el-main>
           <Main />
         </el-main>
-        <el-footer><Footer /></el-footer>
+        <el-footer v-if="globalStore.isShowFooter"><Footer /></el-footer>
       </el-container>
     </el-container>
   </div>
@@ -24,6 +24,8 @@ import Aside from '@/layouts/aside/index.vue'
 import Main from '@/layouts/main/index.vue'
 import tagBox from '@/layouts/tagBox/index.vue'
 import Footer from '@/layouts/footer/index.vue'
+import { useGolbalStore } from '@/store/global'
+const globalStore = useGolbalStore()
 </script>
 <style scoped>
 @import './index.scss';

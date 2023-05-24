@@ -7,7 +7,7 @@
       <p>全局主题</p>
       <div class="drawer_item">
         <span>主题颜色</span>
-        <el-color-picker @change="setColor()" v-model="color" :predefine="predefineColors" show-alpha> </el-color-picker>
+        <themeColor></themeColor>
       </div>
       <div class="drawer_item">
         <span>跟随系统</span>
@@ -17,6 +17,31 @@
         <span>暗黑模式</span>
         <darkTheme></darkTheme>
       </div>
+      <p>界面设计</p>
+      <div class="drawer_item">
+        <span>折叠菜单</span>
+        <el-switch @change="globalStore.changeCollapse" v-model="globalStore.isCollapse"></el-switch>
+      </div>
+      <div class="drawer_item">
+        <span>面包屑</span>
+        <el-switch  v-model="globalStore.isShowBread"></el-switch>
+      </div>
+      <div class="drawer_item">
+        <span>面包屑图标</span>
+        <el-switch  v-model="globalStore.isShowBreadIcon"></el-switch>
+      </div>
+      <div class="drawer_item">
+        <span>标签栏</span>
+        <el-switch  v-model="globalStore.isShowTab"></el-switch>
+      </div>
+      <div class="drawer_item">
+        <span>标签栏图标</span>
+        <el-switch  v-model="globalStore.isShowTabIcon"></el-switch>
+      </div>
+      <div class="drawer_item">
+        <span>页脚</span>
+        <el-switch  v-model="globalStore.isShowFooter"></el-switch>
+      </div>
     </template>
   </el-drawer>
 </template>
@@ -24,19 +49,12 @@
 import { ref, defineExpose } from 'vue'
 import darkTheme from '@/components/darkSwitch.vue'
 import osTheme from '@/components/osSwitch.vue'
+import themeColor from '@/components/themeColor.vue'
+import { useGolbalStore } from '@/store/global'
+const globalStore = useGolbalStore()
 const drawer = ref(false)
-const color = ref('#409EFF')
-const predefineColors = ref(['#ff4500', '#ff8c00', '#ffd700', '#90ee90', '#00ced1', '#1e90ff', '#c71585', 'rgb(255, 120, 0)', 'hsv(51, 100, 98)', 'hsl(181, 100%, 37%)'])
 const showDrawer = () => {
   drawer.value = true
-}
-//修改主题颜色
-const setColor = () => {
-  document.documentElement.style.setProperty('--el-color-primary', color.value)
-  document.documentElement.style.setProperty('--el-color-danger', color.value)
-  document.documentElement.style.setProperty('--el-color-success', color.value)
-  document.documentElement.style.setProperty('--el-color-warning', color.value)
-  document.documentElement.style.setProperty('--el-color-info', color.value)
 }
 //暴露方法
 defineExpose({ showDrawer })

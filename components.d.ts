@@ -68,5 +68,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Switch: typeof import('./src/components/switch.vue')['default']
+    ThemeColor: typeof import('./src/components/themeColor.vue')['default']
   }
 }

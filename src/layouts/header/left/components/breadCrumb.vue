@@ -1,7 +1,7 @@
 <template>
   <el-breadcrumb separator=">">
     <el-breadcrumb-item v-for="(item, index) in breadCrumbList">
-      <p style="display:inline-block" :class="item.icon"></p>
+      <p v-if="globalStore.isShowBreadIcon" style="display:inline-block" :class="item.icon"></p>
       <span :class="{ active: index === breadCrumbList.length - 1 }">{{ item.title }} </span>
     </el-breadcrumb-item>
   </el-breadcrumb>
@@ -10,7 +10,9 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
 import { useBreadCrumbStore } from '@/store/breadCrumb'
+import { useGolbalStore } from '@/store/global'
 const breadCrumbStore = useBreadCrumbStore()
+const globalStore = useGolbalStore()
 const { breadCrumbList } = storeToRefs(breadCrumbStore)
 
 import { useRouter } from 'vue-router'
