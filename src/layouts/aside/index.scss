@@ -8,7 +8,7 @@
 }
 /* 激活时的背景颜色为#E6F5F3 */
 .el-menu-item.is-active {
-  background-color: #E6F5F3;
+  background-color: #e6f5f3;
 }
 .el-menu-item.is-active::before {
   content: '';
@@ -25,4 +25,9 @@
 .el-menu {
   height: 100%;
   border: 0;
+}
+
+.scroll-container {
+  height: calc(100% - 100px); /* 调整这里的值以适应logoForm的高度 */
+  overflow-y: auto;
 }
