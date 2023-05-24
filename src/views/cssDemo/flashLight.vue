@@ -24,10 +24,11 @@ const content = ref(`
 const circleX = ref(35) // 初始鼠标X坐标
 const circleY = ref(35) // 初始鼠标Y坐标
 const handleMouseEnter = (event: any) => {
-  // 获取鼠标坐标
-  circleX.value = event.clientX - event.currentTarget.offsetLeft
-  circleY.value = event.clientY - event.currentTarget.offsetTop
+  // 获取鼠标相对于事件目标的坐标
+  circleX.value = event.offsetX
+  circleY.value = event.offsetY
 }
+
 </script>
 <style scoped>
 @keyframes move-ani {
