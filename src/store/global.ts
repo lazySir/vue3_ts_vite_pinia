@@ -29,9 +29,11 @@ export const useGolbalStore = defineStore('globalStore', {
       asideStore.changeCollapse()
     },
     //改变布局模式
-    setLayout(val:any){
+    setLayout(val: any) {
       this.layout = val
-    }
+    },
   },
-  persist: true
+  persist: {
+    storage: window.sessionStorage,
+  },
 })

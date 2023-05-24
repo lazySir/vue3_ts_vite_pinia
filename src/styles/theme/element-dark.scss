@@ -46,11 +46,12 @@ html.dark {
           }
         }
         .r-container {
-          .drawer_item{
+          .drawer_item {
             color: #fff !important;
           }
-          h1,p{
-            color: #E5EAF3 !important;
+          h1,
+          p {
+            color: #e5eaf3 !important;
           }
           .el-icon {
             &:not(.is-active) {
@@ -65,6 +66,13 @@ html.dark {
             color: var(--lazySir-text-color) !important;
           }
         }
+      }
+      .logo {
+        .title {
+          color: #dadada !important;
+        }
+
+        border-bottom-color: var(--lazySir-border-color) !important;
       }
     }
     .el-aside {
@@ -98,7 +106,7 @@ html.dark {
     }
     .el-main {
       background-color: var(--lazySir-bg-color);
-      .home-card{
+      .home-card {
         background-color: var(--lazySir-bg-color);
         border: 1px solid var(--lazySir-border-color);
       }
