@@ -1,0 +1,30 @@
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+}
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 55px;
+}
+.el-main{
+  height: calc(100vh - 55px - 30px - 30px);
+}
+.logo {
+  margin-right: 15px;
+}
+.el-menu {
+  flex: 2.5;
+  height: 55px;
+}
+.el-footer {
+  border-top: 1px solid #ebeef5;
+  height: 30px;
+  .footer{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

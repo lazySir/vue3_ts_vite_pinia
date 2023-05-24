@@ -118,7 +118,48 @@ html.dark {
         color: var(--lazySir-text-color) !important;
       }
     }
-
+    //transverse
+    .header-container {
+      .r-container {
+        .username {
+          color: var(--lazySir-text-color) !important;
+        }
+        .drawer_item {
+          color: #fff !important;
+        }
+        h1,
+        p {
+          color: #e5eaf3 !important;
+        }
+        .el-icon {
+          &:not(.is-active) {
+            color: #bdbdc0 !important;
+          }
+          &.is-active {
+            color: #ffffff !important;
+            background-color: #000000 !important;
+          }
+        }
+      }
+      .el-menu,
+      .el-sub-menu,
+      .el-menu-item,
+      .el-sub-menu__title {
+        background-color: var(--lazySir-bg-color) !important;
+        &:not(.is-active) {
+          color: #bdbdc0 !important;
+        }
+        &.is-active {
+          color: #ffffff !important;
+          background-color: #000000 !important;
+        }
+      }
+      .el-menu-item:not(.is-active):hover {
+        color: #ffffff !important;
+        background-color: var(--lazySir-main-bg-color) !important;
+      }
+      
+    }
     //tagBox
     .tagBox-container {
       background-color: var(--lazySir-bg-color);
