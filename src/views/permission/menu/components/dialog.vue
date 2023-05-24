@@ -5,7 +5,7 @@
         <el-input disabled v-model="newMenu.Ptitle" placeholder=""></el-input>
       </el-form-item>
       <el-form-item label="权限名称">
-        <el-input prop="menuKey" v-model="newMenu.title" placeholder=""></el-input>
+        <el-input prop="menuKey" v-model="newMenu.meta.title" placeholder=""></el-input>
       </el-form-item>
       <el-form-item label="权限值">
         <el-input prop="menuValue" v-model="newMenu.name" placeholder=""></el-input>
@@ -45,6 +45,9 @@ const permissionMenuStore = usePermissionMenuStore()
 let newMenu = ref<Record<string, any>>({
   icon:'i-material-symbols:grid-view',
   level:0,
+  meta:{
+    title:''
+  }
 })
 //定义dialogVisible的值
 const dialogVisible = ref(false)
@@ -59,7 +62,7 @@ function showDialog(row: any = undefined) {
     // 修改
     newMenu.value.PmenuId= row.PmenuId
     newMenu.value.level= row.level
-    newMenu.value.title= row.title
+    newMenu.value.meta.title= row.meta.title
     newMenu.value.name= row.name
     newMenu.value.icon= row.icon
     newMenu.value.menuId= row.menuId
@@ -87,6 +90,9 @@ function resetNewMenu() {
   newMenu.value = {
     icon:'i-material-symbols:grid-view',
     level:0,
+    meta:{
+      title:''
+    }
   }
 }
 //取消按钮
@@ -97,12 +103,15 @@ function cancel() {
   newMenu.value = {
   icon:'i-material-symbols:grid-view',
   level:1,
+  meta:{
+    title:''
+  }
 }
 }
 //确定按钮
 function confirm() {
   //检验newMenu的menuKey和menuValue是否为空
-  if (!newMenu.value.title || !newMenu.value.name) {
+  if (!newMenu.value.meta.title || !newMenu.value.name) {
     return ElMessage.error('权限名称或权限值不能为空')
   }
   //关闭对话框

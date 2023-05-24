@@ -4,14 +4,14 @@
       v-for="(item, index) in tagList"
       :effect="nightTheme"
       :type="nightClass"
-      :key="item.title"
+      :key="item.meta.title"
       @click="tagBoxStore.pushRoute(item.name)"
       @close="tagBoxStore.deleteTag(index)"
       :closable="index !== 0"
     >
       <div>
         <p v-if="globalStore.isShowTabIcon" :class="item.icon"></p>
-        {{ item.title }}
+        {{ item.meta.title }}
       </div>
     </el-tag>
   </div>

@@ -46,8 +46,8 @@ function handlerLogin() {
           type: 'success',
           duration: 3000,
         })
-        loading.value = false
       }
+      loading.value = false
       return true
     } else {
       return false

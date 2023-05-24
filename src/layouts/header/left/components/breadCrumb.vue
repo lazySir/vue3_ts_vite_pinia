@@ -2,7 +2,7 @@
   <el-breadcrumb separator=">">
     <el-breadcrumb-item v-for="(item, index) in breadCrumbList">
       <p v-if="globalStore.isShowBreadIcon" style="display:inline-block" :class="item.icon"></p>
-      <span :class="{ active: index === breadCrumbList.length - 1 }">{{ item.title }} </span>
+      <span :class="{ active: index === breadCrumbList.length - 1 }">{{ item.meta.title }} </span>
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>

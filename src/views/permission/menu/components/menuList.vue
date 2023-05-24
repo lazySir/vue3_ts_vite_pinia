@@ -34,7 +34,7 @@
               <template #default="scope">
                 <el-tag type="">
                   <p style="display: inline-block" :class="scope.row.icon"></p>
-                  <span>{{ scope.row.title }}</span>
+                  <span>{{ scope.row.meta.title }}</span>
                 </el-tag>
               </template>
             </el-table-column>
@@ -57,14 +57,14 @@
                 <div v-if="!textMode">
                 <!-- <el-button type="primary" @click='addOrUpdate({level:scope.row.level,menuKey:scope.row.menuKey})' icon="plus"></el-button> -->
                 <!-- 修改 -->
-                <el-button type="warning" @click="addOrUpdate({ PmenuId: props.row.menuId, Ptitle: props.row.title, ...scope.row })" icon="edit"></el-button>
+                <el-button type="warning" @click="addOrUpdate({ PmenuId: props.row.menuId, Ptitle: props.row.meta.title, ...scope.row })" icon="edit"></el-button>
                 <!-- 删除 -->
                 <el-button @click="deleteMenu(scope.row)" type="danger" icon="delete"></el-button>
                 </div>
 
                 <!-- 文字模式 -->
                 <div v-else>
-                  <span  @click="addOrUpdate({ PmenuId: props.row.menuId, Ptitle: props.row.title, ...scope.row })"  class="text_btn">修改</span>
+                  <span  @click="addOrUpdate({ PmenuId: props.row.menuId, Ptitle: props.row.meta.title, ...scope.row })"  class="text_btn">修改</span>
                   <span @click="deleteMenu(scope.row)" class="text_btn">删除</span>
                 </div>
               </template>
@@ -94,7 +94,7 @@
       <template #default="scope">
         <el-tag type="">
           <p style="display: inline-block" :class="scope.row.icon"></p>
-          <span>{{ scope.row.title }}</span>
+          <span>{{ scope.row.meta.title }}</span>
         </el-tag>
       </template>
     </el-table-column>
@@ -121,7 +121,7 @@
       <template #default="scope">
         <!-- 按钮模式 -->
         <div v-if="!textMode">
-          <el-button type="primary" @click="addOrUpdate({ PmenuId: scope.row.menuId, level: scope.row.level, Ptitle: scope.row.title })" icon="plus"></el-button>
+          <el-button type="primary" @click="addOrUpdate({ PmenuId: scope.row.menuId, level: scope.row.level, Ptitle: scope.row.meta.title })" icon="plus"></el-button>
           <!-- 修改 -->
           <el-button type="warning" @click="addOrUpdate({ ...scope.row })" icon="edit"></el-button>
           <!-- 删除 -->
@@ -129,7 +129,7 @@
         </div>
         <!-- 文字模式 -->
         <div v-else>
-          <span @click="addOrUpdate({ PmenuId: scope.row.menuId, level: scope.row.level, Ptitle: scope.row.title })" class="text_btn">添加</span>
+          <span @click="addOrUpdate({ PmenuId: scope.row.menuId, level: scope.row.level, Ptitle: scope.row.meta.title })" class="text_btn">添加</span>
           <span  @click="addOrUpdate({ ...scope.row })" class="text_btn">修改</span>
           <span @click="deleteMenu(scope.row)" class="text_btn">删除</span>
         </div>

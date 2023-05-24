@@ -19,7 +19,14 @@
         </el-form-item>
         <div class="header_text">权限编辑</div>
         <!-- 树形结构 -->
-        <el-tree ref="treeRef" :data="permissionMenuStore.menuList" show-checkbox node-key="menuId" default-expand-all :props="defaultProps" />
+        <el-tree ref="treeRef" :data="permissionMenuStore.menuList" show-checkbox node-key="menuId" default-expand-all :props="defaultProps">
+          <!-- 自定义节点内容 -->
+          <template #default="{ node, data }">
+            <span class="custom-tree-node">
+              {{ data.meta?.title || node.label }}
+            </span>
+          </template>
+        </el-tree>
       </el-form>
       <!-- 尾部 -->
       <div class="drawer__footer">
@@ -45,7 +52,7 @@ const treeRef = ref<any>(null)
 //树形控件参数配置
 const defaultProps = {
   children: 'children',
-  label: 'title',
+  // label: "meta['title']",
 }
 //树形空间展开方向
 const direction = ref<any>('rtl')
@@ -65,7 +72,7 @@ const openDrawer = (val: any) => {
   resetRole()
   drawer.value = true
   role.value = JSON.parse(JSON.stringify(val))
-  role.value.menuIdList?setCheckedKeys(role.value.menuIdList):setCheckedKeys([])
+  role.value.menuIdList ? setCheckedKeys(role.value.menuIdList) : setCheckedKeys([])
 }
 //关闭抽屉的回调 与取消编辑
 const handleClose = () => {

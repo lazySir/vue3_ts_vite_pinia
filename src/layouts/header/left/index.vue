@@ -3,9 +3,7 @@
     <!-- 收缩与否 -->
     <Hamburger></Hamburger>
     <!-- 面包屑-->
-    <components v-if="globalStore.isShowBread">
-      <BreadCrumb></BreadCrumb>
-    </components>
+      <BreadCrumb v-if="globalStore.isShowBread"></BreadCrumb>
   </div>
 </template>
 

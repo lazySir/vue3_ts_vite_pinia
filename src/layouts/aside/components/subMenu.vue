@@ -6,21 +6,21 @@
         <el-icon>
           <i :class="item.icon" style="font-size: 17px; margin-right: 5px"></i>
         </el-icon>
-        <span>{{ item.title }}</span>
+        <span>{{ item.meta.title }}</span>
       </template>
       <el-menu-item-group v-for="itemChildrens in item.children" :key="itemChildrens.path">
         <el-menu-item @click="asideStore.pushPath(itemChildrens)" :index="itemChildrens.path">
           <el-icon>
             <i :class="itemChildrens.icon" style="font-size: 17px; margin-right: 5px"></i>
           </el-icon>
-          <span>{{ itemChildrens.title }}</span>
+          <span>{{ itemChildrens.meta.title }}</span>
         </el-menu-item>
       </el-menu-item-group>
     </el-sub-menu>
     <!-- 无子项 -->
-    <el-menu-item v-else :index="item.title" :key="item.path + '-item'" @click="asideStore.pushPath(item)">
+    <el-menu-item v-else :index="item.meta.title" :key="item.path + '-item'" @click="asideStore.pushPath(item)">
       <i :class="item.icon" style="font-size: 17px; margin-right: 5px"></i>
-      <span>{{ item.title }}</span>
+      <span>{{ item.meta.title }}</span>
     </el-menu-item>
   </template>
 </template>

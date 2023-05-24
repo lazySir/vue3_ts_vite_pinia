@@ -23,6 +23,9 @@ router.beforeEach(async (to, from, next) => {
       //跳转到刷新前的页面
       await router.replace(to.path)
     }
+    if(to.meta.title){
+      document.title = to.meta.title + ' - LazySir-Admin' ;
+    }
     next()
   }
 })

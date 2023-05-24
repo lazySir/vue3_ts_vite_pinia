@@ -7,19 +7,23 @@ export default {
     const { username, password } = JSON.parse(req.body)
     //将username和password与userInfo中的数据进行比
     const user = userList.filter((item) => item.username == username && item.password == password)
-    if (user.length > 0) {
+    if (user.length > 0 && user[0].code) {
       return {
         code: 200,
         message: '登录成功',
-        data:{
+        data: {
           token: Mock.mock('@guid'),
           avatar: user[0].avatar,
           username: user[0].username,
           email: user[0].email,
           name: user[0].name,
-          roleIdList:user[0].roleIdList
-        }
-
+          roleIdList: user[0].roleIdList,
+        },
+      }
+    } else if (user[0].code == false) {
+      return {
+        code: 205,
+        message: '账号已被禁用',
       }
     } else {
       return {
@@ -45,8 +49,8 @@ export default {
         password,
         name: 'user',
         email,
-        roleIdList:[],
-        code:true,
+        roleIdList: [],
+        code: true,
         createTime: new Date().toLocaleString('zh-CN'),
         updateTime: new Date().toLocaleString('zh-CN'),
         //mock模拟头像
