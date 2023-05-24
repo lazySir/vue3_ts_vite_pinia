@@ -18,8 +18,8 @@
 </template>
 
 <script lang="ts" setup>
-import subMenu from '@/layouts/aside/components/subMenu.vue' //子菜单
-import logoForm from '@/layouts/aside/components/logo.vue'
+import subMenu from '@/layouts/components/aside/components/subMenu.vue' //子菜单
+import logoForm from '@/layouts/components/aside/components/logo.vue'
 import { useAsideStore } from '@/store/aside'
 const asideStore = useAsideStore()
 </script>

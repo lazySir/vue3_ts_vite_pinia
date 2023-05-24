@@ -1,13 +1,13 @@
 <template>
   <div @click="asideStore.changeCollapse()" style="padding: 0">
-    <el-icon size='20px'>
+    <el-icon size="20px">
       <i-uis-right-indent class="hamburger" :class="{ 'is-active': !asideStore.isCollapse }"></i-uis-right-indent>
     </el-icon>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useAsideStore } from '@/store/aside.ts'
+import { useAsideStore } from '@/store/aside'
 const asideStore = useAsideStore()
 </script>
 <style scoped>

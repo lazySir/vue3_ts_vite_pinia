@@ -6,9 +6,9 @@
   </div>
 </template>
 <script lang="ts" setup>
-import avatar from '@/layouts/header/right/components/avatar.vue'
-import username from '@/layouts/header/right/components/username.vue'
-import iconBox from '@/layouts/header/right/iconBox.vue'
+import avatar from '@/layouts/components/header/right/components/avatar.vue'
+import username from '@/layouts/components/header/right/components/username.vue'
+import iconBox from '@/layouts/components/header/right/iconBox.vue'
 </script>
 <style scoped>
 .r-content{

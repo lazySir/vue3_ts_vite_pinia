@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import leftContent from '@/layouts/header/left/index.vue'
-import rightContent from '@/layouts/header/right/index.vue'
+import leftContent from '@/layouts/components/header/left/index.vue'
+import rightContent from '@/layouts/components/header/right/index.vue'
 </script>
 
 <style scoped>
