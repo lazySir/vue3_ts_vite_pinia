@@ -14,4 +14,5 @@ export default [
   'i-mingcute-t-shirt-line',
   'i-mdi-bell-outline',
   'i-ic:baseline-monitor',
+  'i-ic:sharp-search',
 ]
