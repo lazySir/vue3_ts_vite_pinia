@@ -3,10 +3,12 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 import { setupPinia } from '@/utils/pinia'
 import { setupElementPlus } from '@/utils/element-plus'
+// vue i18n
+import I18n from "@/languages/index";
 import router from '@/router'
 
 const app = createApp(App)
-
+app.use(I18n)
 //引入pinia
 setupPinia(app)
 //引入router

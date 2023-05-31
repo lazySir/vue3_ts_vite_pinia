@@ -1,26 +1,26 @@
 <template>
   <el-dropdown trigger="click" :teleported="false">
     <el-button size="small" type="primary">
-      <span>更多</span>
+      <span>{{ $t("tabs.more") }}</span>
       <el-icon class="el-icon--right"><arrow-down /></el-icon>
     </el-button>
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item @click="tagBoxStore.changeRefresh">
           <el-icon size="20px"><i class="i-ic:outline-sync"></i></el-icon>
-          <span> 刷新 </span>
+          <span>{{ $t("tabs.reFresh") }}</span>
         </el-dropdown-item>
         <el-dropdown-item divided @click="closeCurrent"
           ><el-icon size="20px"><i class="i-line-md:cancel"></i></el-icon>
-          <span> 关闭当前 </span>
+          <span> {{ $t("tabs.closeCurrent") }} </span>
         </el-dropdown-item>
         <el-dropdown-item @click="closeOther"
           ><el-icon size="20px"><i class="i-material-symbols:cancel-outline-rounded"></i></el-icon>
-          <span> 关闭其他 </span>
+          <span>{{ $t("tabs.closeOther") }}</span>
         </el-dropdown-item>
         <el-dropdown-item @click="closeAll"
           ><el-icon size="20px"> <i class="i-fluent:calendar-cancel-16-regular"></i> </el-icon>
-          <span>关闭所有</span>
+          <span>{{ $t("tabs.closeAll") }}</span>
         </el-dropdown-item>
       </el-dropdown-menu>
     </template>

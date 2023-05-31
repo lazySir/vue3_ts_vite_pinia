@@ -1,0 +1,29 @@
+export default {
+  tabs:{
+    more:'更多',
+    reFresh:'重新整理',
+    closeCurrent:'關閉目前',
+    closeOther:'關閉其他',
+    closeAll:'關閉全部',
+  },
+  header:{
+    layoutSetting:'佈局設定',
+    layoutSwitching:'佈局切換',
+    topicGlobal:'全域主題',
+    themeColor:'主題顏色',
+    themeDark:'深色主題',
+    followerSystem:'追蹤系統',
+    interfaceDesign:'介面設計',
+    foldingMenu:'折疊選單',
+    breadCrumbs:'麵包屑',
+    breadCrumbsIcons:'麵包屑圖示',
+    tab:'標籤',
+    tabIcons:'標籤圖示',
+    footer:'頁尾',
+  },
+  avatar:{
+    personalCenter:'個人中心',
+    changePassword:'修改密碼',
+    logout:'登出',
+  }
+}

@@ -1,13 +1,15 @@
 <template>
-  <el-drawer size="18%" class="drawer" v-model="drawer">
+  <el-drawer size="20%" class="drawer" v-model="drawer">
     <template #header>
-      <h1 class="title">布局设置</h1>
+      <h1 class="title">
+        <span>{{ $t("header.layoutSetting") }}</span>
+      </h1>
     </template>
     <template #default>
       <!-- 布局切换 -->
       <el-divider class="divider" content-position="center">
         <el-icon><Notification /></el-icon>
-        布局切换
+        <span>{{ $t('header.layoutSwitching') }}</span>
       </el-divider>
       <div class="layout-box mb30">
         <div :class="['layout-item layout-vertical', { 'is-active': layout == 'vertical' }]" @click="setLayout('vertical')">
@@ -44,47 +46,47 @@
       <!-- 全局主题 -->
       <el-divider class="divider" content-position="center">
         <el-icon><ColdDrink /></el-icon>
-        全局主题
+        <span>{{ $t('header.topicGlobal') }}</span>
       </el-divider>
       <div class="drawer_item">
-        <span>主题颜色</span>
+        <span> {{ $t('header.themeColor') }}</span>
         <themeColor></themeColor>
       </div>
       <div class="drawer_item">
-        <span>跟随系统</span>
+        <span>{{ $t('header.followerSystem') }}</span>
         <osTheme></osTheme>
       </div>
       <div class="drawer_item">
-        <span>暗黑模式</span>
+        <span>{{ $t('header.themeDark') }}</span>
         <darkTheme></darkTheme>
       </div>
       <!-- 界面设置 -->
       <el-divider class="divider" content-position="center">
         <el-icon><Setting /></el-icon>
-        界面设置
+        <span>{{ $t('header.interfaceDesign') }}</span>
       </el-divider>
       <div class="drawer_item">
-        <span>折叠菜单</span>
+        <span>{{ $t('header.foldingMenu') }}</span>
         <el-switch @change="globalStore.changeCollapse" v-model="globalStore.isCollapse"></el-switch>
       </div>
       <div class="drawer_item">
-        <span>面包屑</span>
+        <span>{{ $t('header.breadCrumbs') }}</span>
         <el-switch v-model="globalStore.isShowBread"></el-switch>
       </div>
       <div class="drawer_item">
-        <span>面包屑图标</span>
+        <span>{{ $t('header.breadCrumbsIcons') }}</span>
         <el-switch v-model="globalStore.isShowBreadIcon"></el-switch>
       </div>
       <div class="drawer_item">
-        <span>标签栏</span>
+        <span>{{ $t('header.tab') }}</span>
         <el-switch v-model="globalStore.isShowTab"></el-switch>
       </div>
       <div class="drawer_item">
-        <span>标签栏图标</span>
+        <span>{{ $t('header.tabIcons') }}</span>
         <el-switch v-model="globalStore.isShowTabIcon"></el-switch>
       </div>
       <div class="drawer_item">
-        <span>页脚</span>
+        <span>{{ $t('header.footer') }}</span>
         <el-switch v-model="globalStore.isShowFooter"></el-switch>
       </div>
     </template>

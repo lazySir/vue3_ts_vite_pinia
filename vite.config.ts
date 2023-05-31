@@ -30,29 +30,26 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [
-        IconsResolver(),
-        ElementPlusResolver()
-      ],
+      resolvers: [IconsResolver(), ElementPlusResolver()],
     }),
     Icons({
       scale: 1.2,
       //将默认icon的长和高设置为20px
       defaultStyle: 'height:20px;width:20px;',
-
     }),
   ],
   server: {
     //是否开启https
     hmr: true,
-    host:"0.0.0.0",
-    open:true
+    host: '0.0.0.0',
+    open: true,
   },
 
   resolve: {
     //配置别名
     alias: {
       '@': path.resolve(__dirname, './src'),
+      'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
     },
     //配置文件扩展名
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],

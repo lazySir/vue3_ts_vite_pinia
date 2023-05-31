@@ -12,14 +12,14 @@
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item>
-          <el-icon><User /></el-icon>个人中心</el-dropdown-item
+          <el-icon><User /></el-icon>{{ $t('avatar.personalCenter') }}</el-dropdown-item
         >
         <el-dropdown-item>
-          <el-icon><Edit /></el-icon>修改密码</el-dropdown-item
+          <el-icon><Edit /></el-icon>{{ $t('avatar.changePassword') }}</el-dropdown-item
         >
         <el-dropdown-item divided @click="userStore.logout">
           <el-icon><SwitchButton /></el-icon>
-          退出
+          {{ $t('avatar.logout') }}
         </el-dropdown-item>
       </el-dropdown-menu>
     </template>

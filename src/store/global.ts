@@ -17,6 +17,8 @@ export const useGolbalStore = defineStore('globalStore', {
       isShowTabIcon: true,
       //是否显示页脚
       isShowFooter: true,
+      //语言
+      language: 'zh',
     }
   },
 

@@ -19,4 +19,5 @@ export default [
   'i-fluent:calendar-cancel-16-regular',
   'i-line-md:cancel',
   'i-material-symbols:cancel-outline-rounded',
+  'i-iconoir:language'
 ]
