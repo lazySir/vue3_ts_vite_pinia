@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 export const useTagBoxStore = defineStore('tagBox', {
+  //持久化存储
+  persist: true,
   state: () => {
     return {
       tagList: [
