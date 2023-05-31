@@ -13,7 +13,7 @@ export const useTagBoxStore = defineStore('tagBox', {
           icon: 'i-material-symbols:home',
         },
       ],
-      refresh:true
+      refresh: true,
     }
   },
   getters: {},
@@ -41,8 +41,20 @@ export const useTagBoxStore = defineStore('tagBox', {
       })
     },
     //刷新
-    changeRefresh(){
-      this.refresh=!this.refresh
-    }
+    changeRefresh() {
+      this.refresh = !this.refresh
+    },
+    //重置tagBox
+    resetTagBox() {
+      this.tagList = [
+        {
+          name: 'Home',
+          meta: {
+            title: '首页',
+          },
+          icon: 'i-material-symbols:home',
+        },
+      ]
+    },
   },
 })
