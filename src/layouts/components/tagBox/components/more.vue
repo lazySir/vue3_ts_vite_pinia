@@ -6,7 +6,8 @@
     </el-button>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item @click="tagBoxStore.changeRefresh">刷新</el-dropdown-item>
+        <el-dropdown-item @click="tagBoxStore.changeRefresh">
+          <i class="i-ic:outline-sync"></i>刷新</el-dropdown-item>
         <el-dropdown-item>Action 2</el-dropdown-item>
         <el-dropdown-item>Action 3</el-dropdown-item>
         <el-dropdown-item disabled>Action 4</el-dropdown-item>

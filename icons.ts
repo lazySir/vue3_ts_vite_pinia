@@ -15,4 +15,5 @@ export default [
   'i-mdi-bell-outline',
   'i-ic:baseline-monitor',
   'i-ic:sharp-search',
+  'i-ic:outline-sync',
 ]
