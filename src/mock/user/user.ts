@@ -20,7 +20,7 @@ export default {
           roleIdList: user[0].roleIdList,
         },
       }
-    } else if (user[0].code == false) {
+    } else if (user[0]?.code == false) {
       return {
         code: 205,
         message: '账号已被禁用',

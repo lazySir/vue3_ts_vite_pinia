@@ -42,7 +42,7 @@ export const useUserStore = defineStore('user', {
     async login(username: string, password: string) {
       //请求登录接口
       const results: any = await reqLogin(username, password)
-      if (results.code == 200) {
+      if (results?.code == 200) {
         //存储信息
         this.userInfo = results.data
         //加载异步路由
